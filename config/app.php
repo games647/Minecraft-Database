@@ -156,6 +156,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //additional addons
+        //debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
+
         //IDE-HELPER
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
@@ -204,6 +208,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //additional addons
+        //debugbar
+        //could be used to log messages
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
