@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/imprint', function() {
+        return view('imprint');
+    });
+});
