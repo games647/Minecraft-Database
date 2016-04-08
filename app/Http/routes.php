@@ -16,6 +16,14 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('/privacy', function() {
+        return view('privacy');
+    });
+    
+    Route::get('/tos', function() {
+        return view('tos');
+    });
+
     Route::get('/imprint', function() {
         return view('imprint');
     });
