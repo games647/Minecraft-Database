@@ -4,4 +4,10 @@
 Vagrantfile
 Homestead.yaml
 Homestead.json
+
+#Exclude os dependent caches
+Thumbs.db
+.DS_Store
+
+# Exclude local configuration
 .env

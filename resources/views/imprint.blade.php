@@ -20,7 +20,19 @@
 
                     <br/>
 
-                    Support: support email
+                    Support: Support: supportcontact [ AT ] . minecraft-database.com
+                </p>
+
+
+                <p>
+                    For bugs, suggestions or contributions visit this:
+                    <a href="https://github.com/games647/Minecraft-Database/issues">Issue tracker</a>:
+                </p>
+
+                <p>
+                    Until the server removal process is automatic, please send removal requests to:
+                    <br/>
+                    removal [ AT ] . minecraft-database.com
                 </p>
             </div>
         </div>
