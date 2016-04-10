@@ -20,7 +20,7 @@
 
                     <br/>
 
-                    Support: Support: supportcontact [ AT ] . minecraft-database.com
+                    Support: supportcontact [ AT ] . minecraft-database.com
                 </p>
 
 

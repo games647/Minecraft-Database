@@ -1,0 +1,13 @@
+#No PHP files allowed here
+php_flag engine off
+
+#Access only to images
+<Files ~ ".*\..*">
+	Order Allow,Deny
+	Deny from all
+</Files>
+<FilesMatch "\.(jpg|jpeg|jpe|gif|png|tif|tiff)$">
+	Order Deny,Allow
+	Allow from all
+    Header append Cache-Control "public"
+</FilesMatch>
