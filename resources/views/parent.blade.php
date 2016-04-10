@@ -24,7 +24,12 @@
                     <a class="navbar-brand" href="/">Minecraft Database</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/server/add">Add server</a></li>
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/privacy">Privacy</a></li>
+                        <li><a href="/tos">TOS</a></li>
                         <li><a href="/imprint">Imprint/Contact</a></li>
                     </ul>
                 </div>
@@ -41,8 +46,8 @@
                     - If you like the project please leave a star <3
                 </p>
                 <p>
-                    This website collects cookies in order to login users and provide security to them.
-                    We do NOT track our users neither we display advertisement to them
+                    This website collects cookies in order to login users and provide security to them. For more details
+                    visit the privacy policiy.
                 </p>
                 <p>Minecraft is copyrighted by Mojang and is not affiliated with this site.</p>
             </footer>

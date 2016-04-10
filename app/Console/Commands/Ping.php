@@ -79,10 +79,11 @@ class Ping extends Command {
      */
     function parsePingData($server, $data) {
         $motd = $data['description'];
-        if (!is_array($motd)) {
-            $server->motd = $motd;
+        if (is_array($motd)) {
+            $motd = \MinecraftJsonColors::convertToLegacy($motd);
         }
 
+        $server->motd = $motd;
         $server->version = $data['version']['name'];
         $server->players = $data['players']['online'];
         $server->maxplayers = $data['players']['max'];

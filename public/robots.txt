@@ -2,4 +2,6 @@ User-agent: *
 Disallow: /imprint
 Disallow: /tos
 Disallow: /privacy
-
+Disallow: /api
+Disallow: /.git
+Disallow: /favicon.ico

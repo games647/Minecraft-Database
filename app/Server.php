@@ -45,4 +45,7 @@ class Server extends Model {
      */
     protected $table = 'servers';
 
+    public function getHtmlMotd() {
+        return \MinecraftColors::convertToHTML($this->motd, true);
+    }
 }

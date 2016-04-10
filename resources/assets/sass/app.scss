@@ -1,2 +1,88 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.navbar-fixed-top .container, .container {
+    width: 1080px;
+    position: relative;
+}
+
+.serverIP {
+    font-size: 16px;
+}
+
+a {
+    color: #d58512;
+    font-weight: 600;
+}
+
+/*General Contant*/
+
+.allContent {
+    margin-top: 75px;
+    background: #222;
+    padding: 2px 10px 10px 10px;
+    border: 1px solid #cccccc;
+    margin-bottom: 5px;
+
+    min-width: 80%;
+
+    float: left;
+    color: whitesmoke;
+}
+
+@font-face {
+    font-family: "minecraft";
+    src: url("/css/minecraft.ttf") format('truetype');
+}
+
+.motd {
+    font-family: minecraft;
+    font-size: 18px;
+    width: 100%;
+}
+
+.serverName {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+body {
+    background: #337ab7;
+}
+
+.online {
+    color: green;
+}
+
+.offline {
+    color: red;
+}
+
+.serverInfo {
+    margin-right: auto;
+
+    img {
+        float: left;
+        margin-left: 30px;
+        margin-top: 15px;
+
+        width: 100px;
+    }
+
+    table {
+        width: 80%;
+        margin-left: auto;
+    }
+}
+
+.serverIcon {
+    img {
+        width: 64px;
+        height: 64px;
+        float: left;
+    }
+}

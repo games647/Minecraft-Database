@@ -1,0 +1,12 @@
+#No PHP files allowed here
+php_flag engine off
+
+#Only style elements allowed
+<Files ~ ".*\..*">
+	Order Allow,Deny
+	Deny from all
+</Files>
+<FilesMatch "\.(css|map|woff|ttf)$">
+	Order Deny,Allow
+	Allow from all
+</FilesMatch>

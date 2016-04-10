@@ -162,6 +162,9 @@ return [
 
         //IDE-HELPER
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        //re-Captcha validator
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
     ],
 
     /*
@@ -210,8 +213,10 @@ return [
 
         //additional addons
         //debugbar
-        //could be used to log messages
+        //can be used to log messages
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
     ],
 
 ];
