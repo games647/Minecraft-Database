@@ -81,8 +81,8 @@
 
                 <h2>License to use website</h2>
                 <p>
-                    Unless otherwise stated, REPLACE_URL and/or its licensors own the intellectual property rights
-                    published on this website and materials used on REPLACE_URL.
+                    Unless otherwise stated, minecraft-database.com and/or its licensors own the intellectual property
+                    rights published on this website and materials used on minecraft-database.com.
 
                     Subject to the license below, all these intellectual property rights are reserved.
                 </p>
@@ -122,9 +122,9 @@
 
                 <h2>Acceptable use</h2>
                 <p>You must not use this website in any way that causes, or may cause, damage to the website or
-                    impairment of the availability or accessibility of REPLACE_URL or in any way which is unlawful,
-                    illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful
-                    purpose or activity.
+                    impairment of the availability or accessibility of minecraft-database.com or in any way which is
+                    unlawful, illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent
+                    or harmful purpose or activity.
                 </p>
 
                 <p>
@@ -135,7 +135,7 @@
 
                 <p>
                     You must not conduct any systematic or automated data collection activities on or in relation to
-                    this website without REPLACE_URL's express written consent.
+                    this website without minecraft-database.com's express written consent.
                     <br />
                     This includes:
                 <ul>
@@ -154,7 +154,7 @@
 
             <p>
                 You must not use this website for any purposes related to marketing without the express written consent
-                of REPLACE_URL.
+                of minecraft-database.com.
             </p>
 
             <h2>User content</h2>
@@ -166,52 +166,58 @@
             </p>
 
             <p>
-                You grant to REPLACE_URL a worldwide, irrevocable, non-exclusive, royalty-free license to use,
-                reproduce, adapt, publish, translate and distribute your user content in any existing or future media.
+                You grant to minecraft-database.com a worldwide, irrevocable, non-exclusive, royalty-free license to
+                use, reproduce, adapt, publish, translate and distribute your user content in any existing or future
+                media.
 
-                You also grant to REPLACE_URL the right to sub-license these rights, and the right to bring an action
-                for infringement of these rights.
+                You also grant to minecraft-database.com the right to sub-license these rights, and the right to bring
+                an action for infringement of these rights.
             </p>
 
             <p>
                 Your user content must not be illegal or unlawful, must not infringe any third party's legal rights,
-                and must not be capable of giving rise to legal action whether against you or REPLACE_URL or a third
-                party (in each case under any applicable law).
+                and must not be capable of giving rise to legal action whether against you or minecraft-database.com
+                or a third party (in each case under any applicable law).
             </p>
 
             <p>You must not submit any user content to the website that is or has ever been the subject of any
                 threatened or actual legal proceedings or other similar complaint.
             </p>
-            <p>REPLACE_URL reserves the right to edit or remove any material submitted to this website, or stored on
-                the servers of REPLACE_URL, or hosted or published upon this website.
+            <p>
+                minecraft-database.com reserves the right to edit or remove any material submitted to this website, or
+                stored on the servers of minecraft-database.com, or hosted or published upon this website.
             </p>
             <p>
-                REPLACE_URL's rights under these terms and conditions in relation to user content, REPLACE_URL does not
-                undertake to monitor the submission of such content to, or the publication of such content
-                on, this website.
+                minecraft-database.com's rights under these terms and conditions in relation to user content,
+                minecraft-database.com does not undertake to monitor the submission of such content to, or the
+                publication of such content on, this website.
             </p>
 
             <h2>No warranties</h2>
             <p>
                 This website is provided “as is” without any representations or warranties, express or implied.
-                REPLACE_URL makes no representations or warranties in relation to this website or the information
-                and materials provided on this website.
+                minecraft-database.com makes no representations or warranties in relation to this website or the
+                information and materials provided on this website.
             </p>
 
-            <p>Without prejudice to the generality of the foregoing paragraph, REPLACE_URL does not warrant that:</p>
+            <p>
+                Without prejudice to the generality of the foregoing paragraph, minecraft-database.com
+                does not warrant that:
+            </p>
             <ul>
                 <li>this website will be constantly available, or available at all; or</li>
                 <li>the information on this website is complete, true, accurate or non-misleading.</li>
             </ul>
-            <p>Nothing on this website constitutes, or is meant to constitute, advice of any kind.
+            <p>
+                Nothing on this website constitutes, or is meant to constitute, advice of any kind.
                 If you require advice in relation to any legal, financial or medical matter you should consult an
                 appropriate professional.
             </p>
 
             <h2>Limitations of liability</h2>
             <p>
-                REPLACE_URL will not be liable to you (whether under the law of contact, the law of torts or otherwise)
-                in relation to the contents of, or use of, or otherwise in connection with, this website:
+                minecraft-database.com will not be liable to you (whether under the law of contact, the law of torts
+                or otherwise) in relation to the contents of, or use of, or otherwise in connection with, this website:
             </p>
             <ul>
                 <li>to the extent that the website is provided free-of-charge, for any direct loss;</li>
@@ -223,7 +229,7 @@
                 </li>
             </ul>
             <p>
-                These limitations of liability apply even if REPLACE_URL has been expressly
+                These limitations of liability apply even if minecraft-database.com has been expressly
                 advised of the potential loss.
             </p>
 
@@ -232,17 +238,17 @@
             <p>
                 Nothing in this website disclaimer will exclude or limit any warranty implied by law that it would be
                 unlawful to exclude or limit; and nothing in this website disclaimer will exclude or limit the liability
-                of REPLACE_TITLE in respect of any:
+                of Minecraft-Database in respect of any:
             </p>
             <ul>
                 <li>
-                    death or personal injury caused by the negligence of REPLACE_URL or its agents, employees
+                    death or personal injury caused by the negligence of minecraft-database.com or its agents, employees
                     or shareholders/owners;
                 </li>
-                <li>fraud or fraudulent misrepresentation on the part of REPLACE_URL; or</li>
+                <li>fraud or fraudulent misrepresentation on the part of minecraft-database.com; or</li>
                 <li>
-                    matter which it would be illegal or unlawful for REPLACE_URL to exclude or limit, or to attempt
-                    or purport to exclude or limit, its liability.
+                    matter which it would be illegal or unlawful for minecraft-database.com to exclude or limit, or to
+                    attempt or purport to exclude or limit, its liability.
                 </li>
             </ul>
 
@@ -255,15 +261,16 @@
 
             <h2>Other parties</h2>
             <p>
-                You accept that, as a limited liability entity, REPLACE_URL has an interest in limiting the personal
-                liability of its officers and employees.  You agree that you will not bring any claim personally against
-                REPLACE_URL's officers or employees in respect of any losses you suffer in connection with the website.
+                You accept that, as a limited liability entity, minecraft-database.com has an interest in limiting
+                the personal liability of its officers and employees.  You agree that you will not bring any claim
+                personally against minecraft-database.com's officers or employees in respect of any losses you suffer
+                in connection with the website.
             </p>
 
             <p>
                 Without prejudice to the foregoing paragraph, you agree that the limitations of warranties and liability
-                set out in this website disclaimer will protect REPLACE_URL's officers, employees, agents, subsidiaries,
-                successors, assigns and sub-contractors as well as REPLACE_URL.
+                set out in this website disclaimer will protect minecraft-database.com's officers, employees, agents,
+                subsidiaries, successors, assigns and sub-contractors as well as minecraft-database.com.
             </p>
 
             <h2>Unenforceable provisions</h2>
@@ -275,35 +282,36 @@
             <h2>Indemnity</h2>
 
             <p>
-                You hereby indemnify REPLACE_URL and undertake to keep REPLACE_URL indemnified against any losses,
-                damages, costs, liabilities and expenses (including without limitation legal expenses and any amounts
-                paid by REPLACE_URL to a third party in settlement of a claim or dispute on the advice of REPLACE_URL's
-                legal advisers) incurred or suffered by REPLACE_URL arising out of any breach by you of any provision
-                of these terms and conditions, or arising out of any claim that you have breached any provision of
-                these terms and conditions.
+                You hereby indemnify minecraft-database.com and undertake to keep minecraft-database.com indemnified
+                against any losses, damages, costs, liabilities and expenses (including without limitation legal
+                expenses and any amounts paid by minecraft-database.com to a third party in settlement of a claim or
+                dispute on the advice of minecraft-database.com's legal advisers) incurred or suffered by
+                minecraft-database.com arising out of any breach by you of any provision of these terms and conditions,
+                or arising out of any claim that you have breached any provision of these terms and conditions.
             </p>
 
             <h2>Breaches of these terms and conditions</h2>
 
             <p>
-                Without prejudice to REPLACE_URL's other rights under these terms and conditions, if you breach these
-                terms and conditions in any way, REPLACE_URL may take such action as REPLACE_URL deems appropriate to
-                deal with the breach, including suspending your access to the website, prohibiting you from accessing
-                the website, blocking computers using your IP address from accessing the website, contacting your
-                internet service provider to request that they block your access to the website and/or bringing court
-                proceedings against you.
+                Without prejudice to minecraft-database.com's other rights under these terms and conditions, if you
+                breach these terms and conditions in any way, minecraft-database.com may take such action as
+                minecraft-database.com deems appropriate to deal with the breach, including suspending your access to
+                the website, prohibiting you from accessing the website, blocking computers using your IP address from
+                accessing the website, contacting your internet service provider to request that they block your access
+                to the website and/or bringing court proceedings against you.
             </p>
 
             <h2>Variation</h2>
-            <p>REPLACE_URL may revise these terms and conditions from time-to-time.  Revised terms and conditions will
-                apply to the use of this website from the date of the publication of the revised terms and conditions
-                on this website.  Please check this page regularly to ensure you are familiar with the current version.
+            <p>minecraft-database.com may revise these terms and conditions from time-to-time.  Revised terms and
+                conditions will apply to the use of this website from the date of the publication of the revised terms
+                and conditions on this website. Please check this page regularly to ensure you are familiar with the
+                current version.
             </p>
 
             <h2>Assignment</h2>
 
-            <p>REPLACE_URL may transfer, sub-contract or otherwise deal with REPLACE_URL's rights and/or obligations
-                under these terms and conditions without notifying you or obtaining your consent.
+            <p>minecraft-database.com may transfer, sub-contract or otherwise deal with minecraft-database.com's rights
+                and/or obligations under these terms and conditions without notifying you or obtaining your consent.
             </p>
 
             <p>You may not transfer, sub-contract or otherwise deal with your rights and/or obligations under these
@@ -321,9 +329,9 @@
             <h2>Entire agreement</h2>
 
             <p>
-                These terms and conditions, together with REPLACE_URL's Privacy Policy constitute the entire agreement
-                between you and REPLACE_URL in relation to your use of this website, and supersede all previous
-                agreements in respect of your use of this website.
+                These terms and conditions, together with minecraft-database.com's Privacy Policy constitute the entire
+                agreement between you and minecraft-database.com in relation to your use of this website, and supersede
+                all previous agreements in respect of your use of this website.
             </p>
 
             <h2>Law and jurisdiction</h2>
@@ -334,15 +342,15 @@
                 of the courts of NEVADA, USA.
             </p>
 
-            <h2>REPLACE_URL's details</h2>
+            <h2>minecraft-database.com's details</h2>
 
-            <p>The full name of REPLACE_URL is REPLACE_TITLE.</p>
+            <p>The full name of minecraft-database.com is Minecraft-Database.</p>
 
             <p>You can contact us by email at our email address link at /contact</p>
 
             <h2>Modification</h2>
             <p>
-                    We reserve the right, at our sole discretion, to modify or replace these Terms at any time.
+                    We reserve the right, at our sole discretion, to modify or  these Terms at any time.
 
                     If a revision is material we will try to provide at least 15 days notice prior to any new terms
                     taking effect.
@@ -356,7 +364,7 @@
 
                     You can view the changelog of all changes on Github.
             </p>
-            <p><strong>Last modified: April 08 2016</strong></p>
+            <p><strong>Last modified: April 11 2016</strong></p>
 
             <h2>About these website Terms of Service</h2>
             <p>
