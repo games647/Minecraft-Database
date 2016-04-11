@@ -53,7 +53,7 @@ This project uses the Laravel framework. They have great documentation here: htt
 
 * PHP 5.7+
 * MySQL or MariaDB (for development you use SQLite too which has no additional setup requirement)
-* Webserver with PHP support (or php artisian )
+* Webserver with PHP support (or php artisan serve )
 
 #### Quick setup using virtual machine (Homestead)
 
@@ -74,7 +74,7 @@ will be configured and you can start using as you started it.
     * any other programs like Putty to ip:localhost port: 2222 (default -> username=vagrant; password=vagrant)
 * Go to the project folder: "cd minecraftdatabase"
 * Run "sudo npm install"
-* Run "php artisian migrate --seed"
+* Run "php artisan migrate --seed"
 * Run "gulp" or "gulp watch"
 * That's it. You can now access it with localhost:8000
 * With "vagrant halt" you can stop the machine
@@ -87,7 +87,7 @@ will be configured and you can start using as you started it.
 * Install NodeJS - https://nodejs.org
 * Run "composer create"
 * Run "npm install"
-* Run "php artisian migrate --seed"
+* Run "php artisan migrate --seed"
 * Run "gulp"
 * Install MySQL (or MariaDB) and a Webserver (for example nginx or apache)
 * Check your server config in the ".env"-file
@@ -100,18 +100,18 @@ will be configured and you can start using as you started it.
 * git fetch
 * git pull
 * gulp
-* php artisian migrate
+* php artisan migrate
 
 ## App specific commands
 
-* php artisian command:ping
+* php artisan command:ping
     Pings all servers in the database
 
 ## Development - Useful commands
 
 ### Artisian webserver
 
-* php artisian serve
+* php artisan serve
 
 ### Run gulp in the background
 
@@ -123,23 +123,23 @@ sass files manually
 
 ![tinker](http://i.imgur.com/GDFeZIc.png)
 
-* php artisian tinker
+* php artisan tinker
 * Example: "\App\Server::find(1);"
 * exit
 
 ### IDE-Helper
 
-* php artisian ide-helper:generate
-* php artisian ide-helper:meta
-* php artisian ide-helper:models
+* php artisan ide-helper:generate
+* php artisan ide-helper:meta
+* php artisan ide-helper:models
 
 ### List all routes
 
-* php artisian route:list
+* php artisan route:list
 
 ### Reset your database
 
-* php artisian migrate:refresh --seed
+* php artisan migrate:refresh --seed
 
 ## Screenshots
 
