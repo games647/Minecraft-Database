@@ -24,7 +24,19 @@ class ServerController extends Controller {
             'g-recaptcha-response' => 'required|recaptcha',
         );
 
-        $validator = \Validator::make($request->input(), $rules);
+        if (env('APP_DEBUG')) {
+            $debugRules = array(
+                'address' => 'required|active_url',
+                'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
+              //disable the captcha in order to hide the api keys and still be able to test the functionality of this
+              //website
+//            'g-recaptcha-response' => 'required|recaptcha',
+            );
+            $validator = \Validator::make($request->input(), $debugRules);
+        } else {
+            $validator = \Validator::make($request->input(), $rules);
+        }
+
 
         $address = $request->input("address");
         \Log::debug("Adding server", ["ip" => $request->ip(), "server" => $address]);
