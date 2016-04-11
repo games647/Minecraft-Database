@@ -95,6 +95,12 @@ will be configured and you can start using as you started it.
 * If you are on a production server add this to your cronjobs to so tasks can run periodically:
     "* * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1"
 
+#### All in one for Windows
+
+Windows might want to checkout [Laragon](https://laragon.org/). It has everything bundled into one installer. After
+installation you just have to copy this project into the "INSTALL_PATH/www" (Install path is default to C:\laragon)
+folder. So it the project folder of should be located there: "INSTALL_PATH/www/minecraftdatabase"
+
 ## Updating
 
 * git fetch
@@ -163,7 +169,7 @@ sass files manually
 [Source](https://www.iconfinder.com/icons/104823/minecraft_icon)
 [License: Creative Commons (Unported 3.0)](https://creativecommons.org/licenses/by/3.0/)
 * Minecraft Font
-[Source](http://www.fonts2u.com/minecraft.schriftart)
+[Source](http://www.fonts2u.com/minecraft)
 [License: Freeware](https://creativecommons.org/licenses/by/3.0/)
 * Minecraft Colors
 [Source](https://github.com/Spirit55555/PHP-Minecraft)
