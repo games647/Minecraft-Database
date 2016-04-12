@@ -14,7 +14,7 @@ Route::group(['middleware' => ['web']], function () {
     //serverlist
     Route::get('/', "ServerController@index");
 
-    Route::get('/server/add/{address}', function() {
+    Route::get('/server/add/{address}', function($address) {
         return view('add', ['address' => "$address"]);
     });
 
