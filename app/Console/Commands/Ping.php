@@ -41,28 +41,39 @@ class Ping extends Command {
     public function handle() {
         $this->info("Pinging server instances");
 
-        $servers = \App\Server::simplePaginate(25);
+        $servers = \App\Server::paginate(25);
+        $bar = $this->output->createProgressBar($servers->total());
+
         /* @var $server \App\Server */
         foreach ($servers as $server) {
             $this->info("Pinging server: " . $server->address);
-            try {
-                $ping = new MinecraftPing($server->address);
-                $result = $ping->Query();
+            $this->pingServer($server);
 
-                $this->parsePingData($server, $result);
-            } catch (MinecraftPingException $exception) {
-                $this->error($server->address . " " . $exception->getMessage());
+            $bar->advance();
+        }
 
-                //Reset the these data online if the server was online before
-                if ($server->online) {
-                    $server->online = 0;
-                    $server->players = 0;
-                    $server->save();
-                }
-            } finally {
-                if (isset($ping)) {
-                    $ping->Close();
-                }
+        $bar->finish();
+        $this->output->writeln("");
+    }
+
+    function pingServer($server) {
+        try {
+            $ping = new MinecraftPing($server->address, self::DEFAULT_MINECRAFT_PORT, 10);
+            $result = $ping->Query();
+
+            $this->parsePingData($server, $result);
+        } catch (MinecraftPingException $exception) {
+            $this->error($server->address . " " . $exception->getMessage());
+
+            //Reset the these data online if the server was online before
+            if ($server->online) {
+                $server->online = 0;
+                $server->players = 0;
+                $server->save();
+            }
+        } finally {
+            if (isset($ping)) {
+                $ping->Close();
             }
         }
     }
