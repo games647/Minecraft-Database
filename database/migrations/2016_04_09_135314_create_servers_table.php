@@ -15,16 +15,16 @@ class CreateServersTable extends Migration {
             $table->increments('id')->unsigned;
 
             $table->string('address');
-            $table->string('motd');
-            $table->string('version');
-            $table->boolean('online');
+            $table->string('motd')->nullable();
+            $table->string('version')->nullable();
+            $table->boolean('online')->nullable();
             //if the onlinemode check failed
             $table->boolean('onlinemode')->nullable()->default(null);
 
-            $table->smallInteger('players')->unsigned;
-            $table->smallInteger('maxplayers')->unsigned;
+            $table->smallInteger('players')->nullable()->unsigned;
+            $table->smallInteger('maxplayers')->nullable()->unsigned;
 
-            $table->smallInteger('ping')->unsigned;
+            $table->smallInteger('ping')->nullable()->unsigned;
 
             $table->unique("address");
 
