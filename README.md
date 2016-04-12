@@ -47,6 +47,19 @@ This project uses the Laravel framework. They have great documentation here: htt
 * Player database
 * API for all features, including UUID resolver, Banner generator, ...
 
+## API Documentation
+
+### Serverlist
+
+* /api - Get all servers as a paginated list
+* /api/server/{address} - Get specific server info
+
+TODO:
+
+* Add Java/PHP examples
+* Add API Reponse examples
+* Add API-Request property examples
+
 ## Installation
 
 ### Requirements

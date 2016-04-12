@@ -11,7 +11,6 @@
 |
 */
 Route::group(['middleware' => ['web']], function () {
-    //serverlist
     Route::get('/', "ServerController@index");
 
     Route::get('/server/add/{address}', function($address) {
@@ -30,6 +29,7 @@ Route::group(['middleware' => ['web']], function () {
         return redirect('/');
     });
 
+    //general
     Route::get('/privacy', function() {
         return view('privacy');
     });
@@ -40,6 +40,25 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/imprint', function() {
         return view('imprint');
+    });
+});
+
+//API
+Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
+    Route::get('/', function() {
+        return App\Server::paginate();
+    });
+
+    Route::get('/server/{address}', function($address) {
+        return App\Server::whereAddress($address)->first();
+    });
+
+    Route::get('/server/{address}/favicon', function($address) {
+        return redirect('/public/img/favicon/' . $address);
+    });
+
+    Route::get('/server', function() {
+        return redirect('/api');
     });
 });
 
