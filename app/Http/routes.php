@@ -62,6 +62,10 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     });
 });
 
+Route::get('/secret', function() {
+    return PHP_BINARY;
+});
+
 Route::get('/.git', function() {
-    return "This project is open source. So why don't you just visit: https://github.com/games647/MinecraftDatabase";
+    return "This project is open source. So why don't you just visit: https://github.com/games647/Minecraft-Database";
 });

@@ -44,7 +44,6 @@ class ServerController extends Controller {
         if ($validator->passes()) {
             $exists = Server::where("address", '=', $address)->exists();
             if ($exists) {
-//                return redirect()->back()->withInput($request->all())->withErrors(['msg', 'Server already ']);
                 return view("add")->with(["address" => $address])->withErrors(['Server already exists']);
             } else {
                 $server = new Server();

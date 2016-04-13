@@ -1,6 +1,3 @@
-#No PHP files allowed here
-php_flag engine off
-
 #Only style elements allowed
 <Files ~ ".*\..*">
 	Order Allow,Deny
