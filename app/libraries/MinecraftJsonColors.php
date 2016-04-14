@@ -67,7 +67,7 @@ class MinecraftJsonColors {
 
         if (isset($json['underlined'])) {
             if ($json['underlined']) {
-                $legacy .= self::COLOR_CHAR . self::$formatting['underlined'];
+                $legacy .= self::COLOR_CHAR . self::$formatting['underline'];
             }
         }
 
