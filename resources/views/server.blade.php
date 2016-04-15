@@ -2,6 +2,10 @@
 
 @section('title', $server->address)
 
+@section('keywords', $server->address . ", " . $server->address . " motd,")
+
+@section('description', $server->address . " description: " . $server->getPlainMotd())
+
 @section('content')
 
         <div class="container">

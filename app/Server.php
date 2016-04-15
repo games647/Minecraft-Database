@@ -48,4 +48,8 @@ class Server extends Model {
     public function getHtmlMotd() {
         return \MinecraftColors::convertToHTML($this->motd, true);
     }
+
+    public function getPlainMotd() {
+        return \MinecraftColors::clean($this->motd);
+    }
 }

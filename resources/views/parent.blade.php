@@ -2,8 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="A Minecraft multiplayer server list in order to find your favorite servers"/>
-        <meta name="keywords" content="minecraft multiplayer serverlist, minecraft database, minecraft server"/>
+        <meta name="description" content="@yield('description'
+              , 'A Minecraft multiplayer server list in order to find your favorite servers')"/>
+        <meta name="keywords"
+              content="@yield('keywords', '') minecraft multiplayer serverlist, minecraft database, minecraft server"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>@yield('title') | Minecraft Database</title>
