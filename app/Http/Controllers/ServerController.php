@@ -67,13 +67,13 @@ class ServerController extends Controller {
             /* @var $server Server */
             $server = Server::where("address", '=', $id)->first();
         } else {
-            abort(404, "Invalid search");
+            abort(400, "Invalid search");
         }
 
         if ($server) {
             return view("server", ['server' => $server]);
         } else {
-            return view("notFound", ['address' => $id]);
+            return response()->view("notFound", ['address' => $id], 404);
         }
     }
 }
