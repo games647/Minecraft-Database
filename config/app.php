@@ -165,6 +165,8 @@ return [
 
         //re-Captcha validator
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+
+        Roumen\Sitemap\SitemapServiceProvider::class,
     ],
 
     /*

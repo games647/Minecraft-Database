@@ -15,7 +15,8 @@
         "doctrine/dbal": "^2.5",
         "barryvdh/laravel-debugbar": "^2.2",
         "xpaw/php-minecraft-query": "^1.0",
-        "greggilbert/recaptcha": "^2.1"
+        "greggilbert/recaptcha": "^2.1",
+        "roumen/sitemap": "^2.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

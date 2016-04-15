@@ -1,7 +1,8 @@
+Sitemap: /sitemap.xml
+
 User-agent: *
 Disallow: /imprint
 Disallow: /tos
 Disallow: /privacy
 Disallow: /api
 Disallow: /.git
-

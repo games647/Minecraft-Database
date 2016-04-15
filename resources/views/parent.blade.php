@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>@yield('title') | Minecraft Database</title>
-
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
         <link rel="stylesheet" href="/css/app.css"/>
     </head>
@@ -15,7 +14,8 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>

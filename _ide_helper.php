@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.29 on 2016-04-10.
+ * Generated for Laravel 5.2.29 on 2016-04-15.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13,13 +13,23 @@ namespace {
     class App extends \Illuminate\Support\Facades\App{
         
         /**
+         * 
+         *
+         * @static 
+         */
+        public static function publicPath(){
+            return \App\MyApp::publicPath();
+        }
+        
+        /**
          * Get the version number of the application.
          *
          * @return string 
          * @static 
          */
         public static function version(){
-            return \Illuminate\Foundation\Application::version();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::version();
         }
         
         /**
@@ -30,7 +40,8 @@ namespace {
          * @static 
          */
         public static function bootstrapWith($bootstrappers){
-            \Illuminate\Foundation\Application::bootstrapWith($bootstrappers);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::bootstrapWith($bootstrappers);
         }
         
         /**
@@ -41,7 +52,8 @@ namespace {
          * @static 
          */
         public static function afterLoadingEnvironment($callback){
-            \Illuminate\Foundation\Application::afterLoadingEnvironment($callback);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::afterLoadingEnvironment($callback);
         }
         
         /**
@@ -53,7 +65,8 @@ namespace {
          * @static 
          */
         public static function beforeBootstrapping($bootstrapper, $callback){
-            \Illuminate\Foundation\Application::beforeBootstrapping($bootstrapper, $callback);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::beforeBootstrapping($bootstrapper, $callback);
         }
         
         /**
@@ -65,7 +78,8 @@ namespace {
          * @static 
          */
         public static function afterBootstrapping($bootstrapper, $callback){
-            \Illuminate\Foundation\Application::afterBootstrapping($bootstrapper, $callback);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::afterBootstrapping($bootstrapper, $callback);
         }
         
         /**
@@ -75,7 +89,8 @@ namespace {
          * @static 
          */
         public static function hasBeenBootstrapped(){
-            return \Illuminate\Foundation\Application::hasBeenBootstrapped();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::hasBeenBootstrapped();
         }
         
         /**
@@ -86,7 +101,8 @@ namespace {
          * @static 
          */
         public static function setBasePath($basePath){
-            return \Illuminate\Foundation\Application::setBasePath($basePath);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::setBasePath($basePath);
         }
         
         /**
@@ -96,7 +112,8 @@ namespace {
          * @static 
          */
         public static function path(){
-            return \Illuminate\Foundation\Application::path();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::path();
         }
         
         /**
@@ -106,7 +123,8 @@ namespace {
          * @static 
          */
         public static function basePath(){
-            return \Illuminate\Foundation\Application::basePath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::basePath();
         }
         
         /**
@@ -116,7 +134,8 @@ namespace {
          * @static 
          */
         public static function bootstrapPath(){
-            return \Illuminate\Foundation\Application::bootstrapPath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::bootstrapPath();
         }
         
         /**
@@ -126,7 +145,8 @@ namespace {
          * @static 
          */
         public static function configPath(){
-            return \Illuminate\Foundation\Application::configPath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::configPath();
         }
         
         /**
@@ -136,7 +156,8 @@ namespace {
          * @static 
          */
         public static function databasePath(){
-            return \Illuminate\Foundation\Application::databasePath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::databasePath();
         }
         
         /**
@@ -147,7 +168,8 @@ namespace {
          * @static 
          */
         public static function useDatabasePath($path){
-            return \Illuminate\Foundation\Application::useDatabasePath($path);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::useDatabasePath($path);
         }
         
         /**
@@ -157,17 +179,8 @@ namespace {
          * @static 
          */
         public static function langPath(){
-            return \Illuminate\Foundation\Application::langPath();
-        }
-        
-        /**
-         * Get the path to the public / web directory.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function publicPath(){
-            return \Illuminate\Foundation\Application::publicPath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::langPath();
         }
         
         /**
@@ -177,7 +190,8 @@ namespace {
          * @static 
          */
         public static function storagePath(){
-            return \Illuminate\Foundation\Application::storagePath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::storagePath();
         }
         
         /**
@@ -188,7 +202,8 @@ namespace {
          * @static 
          */
         public static function useStoragePath($path){
-            return \Illuminate\Foundation\Application::useStoragePath($path);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::useStoragePath($path);
         }
         
         /**
@@ -198,7 +213,8 @@ namespace {
          * @static 
          */
         public static function environmentPath(){
-            return \Illuminate\Foundation\Application::environmentPath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::environmentPath();
         }
         
         /**
@@ -209,7 +225,8 @@ namespace {
          * @static 
          */
         public static function useEnvironmentPath($path){
-            return \Illuminate\Foundation\Application::useEnvironmentPath($path);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::useEnvironmentPath($path);
         }
         
         /**
@@ -220,7 +237,8 @@ namespace {
          * @static 
          */
         public static function loadEnvironmentFrom($file){
-            return \Illuminate\Foundation\Application::loadEnvironmentFrom($file);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::loadEnvironmentFrom($file);
         }
         
         /**
@@ -230,7 +248,8 @@ namespace {
          * @static 
          */
         public static function environmentFile(){
-            return \Illuminate\Foundation\Application::environmentFile();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::environmentFile();
         }
         
         /**
@@ -240,7 +259,8 @@ namespace {
          * @static 
          */
         public static function environmentFilePath(){
-            return \Illuminate\Foundation\Application::environmentFilePath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::environmentFilePath();
         }
         
         /**
@@ -251,7 +271,8 @@ namespace {
          * @static 
          */
         public static function environment(){
-            return \Illuminate\Foundation\Application::environment();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::environment();
         }
         
         /**
@@ -261,7 +282,8 @@ namespace {
          * @static 
          */
         public static function isLocal(){
-            return \Illuminate\Foundation\Application::isLocal();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::isLocal();
         }
         
         /**
@@ -272,7 +294,8 @@ namespace {
          * @static 
          */
         public static function detectEnvironment($callback){
-            return \Illuminate\Foundation\Application::detectEnvironment($callback);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::detectEnvironment($callback);
         }
         
         /**
@@ -282,7 +305,8 @@ namespace {
          * @static 
          */
         public static function runningInConsole(){
-            return \Illuminate\Foundation\Application::runningInConsole();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::runningInConsole();
         }
         
         /**
@@ -292,7 +316,8 @@ namespace {
          * @static 
          */
         public static function runningUnitTests(){
-            return \Illuminate\Foundation\Application::runningUnitTests();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::runningUnitTests();
         }
         
         /**
@@ -302,7 +327,8 @@ namespace {
          * @static 
          */
         public static function registerConfiguredProviders(){
-            \Illuminate\Foundation\Application::registerConfiguredProviders();
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::registerConfiguredProviders();
         }
         
         /**
@@ -315,7 +341,8 @@ namespace {
          * @static 
          */
         public static function register($provider, $options = array(), $force = false){
-            return \Illuminate\Foundation\Application::register($provider, $options, $force);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::register($provider, $options, $force);
         }
         
         /**
@@ -326,7 +353,8 @@ namespace {
          * @static 
          */
         public static function getProvider($provider){
-            return \Illuminate\Foundation\Application::getProvider($provider);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getProvider($provider);
         }
         
         /**
@@ -337,7 +365,8 @@ namespace {
          * @static 
          */
         public static function resolveProviderClass($provider){
-            return \Illuminate\Foundation\Application::resolveProviderClass($provider);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::resolveProviderClass($provider);
         }
         
         /**
@@ -347,7 +376,8 @@ namespace {
          * @static 
          */
         public static function loadDeferredProviders(){
-            \Illuminate\Foundation\Application::loadDeferredProviders();
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::loadDeferredProviders();
         }
         
         /**
@@ -358,7 +388,8 @@ namespace {
          * @static 
          */
         public static function loadDeferredProvider($service){
-            \Illuminate\Foundation\Application::loadDeferredProvider($service);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::loadDeferredProvider($service);
         }
         
         /**
@@ -370,7 +401,8 @@ namespace {
          * @static 
          */
         public static function registerDeferredProvider($provider, $service = null){
-            \Illuminate\Foundation\Application::registerDeferredProvider($provider, $service);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::registerDeferredProvider($provider, $service);
         }
         
         /**
@@ -384,7 +416,8 @@ namespace {
          * @static 
          */
         public static function make($abstract, $parameters = array()){
-            return \Illuminate\Foundation\Application::make($abstract, $parameters);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::make($abstract, $parameters);
         }
         
         /**
@@ -397,7 +430,8 @@ namespace {
          * @static 
          */
         public static function bound($abstract){
-            return \Illuminate\Foundation\Application::bound($abstract);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::bound($abstract);
         }
         
         /**
@@ -407,7 +441,8 @@ namespace {
          * @static 
          */
         public static function isBooted(){
-            return \Illuminate\Foundation\Application::isBooted();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::isBooted();
         }
         
         /**
@@ -417,7 +452,8 @@ namespace {
          * @static 
          */
         public static function boot(){
-            \Illuminate\Foundation\Application::boot();
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::boot();
         }
         
         /**
@@ -428,7 +464,8 @@ namespace {
          * @static 
          */
         public static function booting($callback){
-            \Illuminate\Foundation\Application::booting($callback);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::booting($callback);
         }
         
         /**
@@ -439,7 +476,8 @@ namespace {
          * @static 
          */
         public static function booted($callback){
-            \Illuminate\Foundation\Application::booted($callback);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::booted($callback);
         }
         
         /**
@@ -448,7 +486,8 @@ namespace {
          * @static 
          */
         public static function handle($request, $type = 1, $catch = true){
-            return \Illuminate\Foundation\Application::handle($request, $type, $catch);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::handle($request, $type, $catch);
         }
         
         /**
@@ -458,7 +497,8 @@ namespace {
          * @static 
          */
         public static function shouldSkipMiddleware(){
-            return \Illuminate\Foundation\Application::shouldSkipMiddleware();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::shouldSkipMiddleware();
         }
         
         /**
@@ -468,7 +508,8 @@ namespace {
          * @static 
          */
         public static function configurationIsCached(){
-            return \Illuminate\Foundation\Application::configurationIsCached();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::configurationIsCached();
         }
         
         /**
@@ -478,7 +519,8 @@ namespace {
          * @static 
          */
         public static function getCachedConfigPath(){
-            return \Illuminate\Foundation\Application::getCachedConfigPath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getCachedConfigPath();
         }
         
         /**
@@ -488,7 +530,8 @@ namespace {
          * @static 
          */
         public static function routesAreCached(){
-            return \Illuminate\Foundation\Application::routesAreCached();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::routesAreCached();
         }
         
         /**
@@ -498,7 +541,8 @@ namespace {
          * @static 
          */
         public static function getCachedRoutesPath(){
-            return \Illuminate\Foundation\Application::getCachedRoutesPath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getCachedRoutesPath();
         }
         
         /**
@@ -508,7 +552,8 @@ namespace {
          * @static 
          */
         public static function getCachedCompilePath(){
-            return \Illuminate\Foundation\Application::getCachedCompilePath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getCachedCompilePath();
         }
         
         /**
@@ -518,7 +563,8 @@ namespace {
          * @static 
          */
         public static function getCachedServicesPath(){
-            return \Illuminate\Foundation\Application::getCachedServicesPath();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getCachedServicesPath();
         }
         
         /**
@@ -528,7 +574,8 @@ namespace {
          * @static 
          */
         public static function isDownForMaintenance(){
-            return \Illuminate\Foundation\Application::isDownForMaintenance();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::isDownForMaintenance();
         }
         
         /**
@@ -542,7 +589,8 @@ namespace {
          * @static 
          */
         public static function abort($code, $message = '', $headers = array()){
-            \Illuminate\Foundation\Application::abort($code, $message, $headers);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::abort($code, $message, $headers);
         }
         
         /**
@@ -553,7 +601,8 @@ namespace {
          * @static 
          */
         public static function terminating($callback){
-            return \Illuminate\Foundation\Application::terminating($callback);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::terminating($callback);
         }
         
         /**
@@ -563,7 +612,8 @@ namespace {
          * @static 
          */
         public static function terminate(){
-            \Illuminate\Foundation\Application::terminate();
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::terminate();
         }
         
         /**
@@ -573,7 +623,8 @@ namespace {
          * @static 
          */
         public static function getLoadedProviders(){
-            return \Illuminate\Foundation\Application::getLoadedProviders();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getLoadedProviders();
         }
         
         /**
@@ -583,7 +634,8 @@ namespace {
          * @static 
          */
         public static function getDeferredServices(){
-            return \Illuminate\Foundation\Application::getDeferredServices();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getDeferredServices();
         }
         
         /**
@@ -594,7 +646,8 @@ namespace {
          * @static 
          */
         public static function setDeferredServices($services){
-            \Illuminate\Foundation\Application::setDeferredServices($services);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::setDeferredServices($services);
         }
         
         /**
@@ -605,7 +658,8 @@ namespace {
          * @static 
          */
         public static function addDeferredServices($services){
-            \Illuminate\Foundation\Application::addDeferredServices($services);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::addDeferredServices($services);
         }
         
         /**
@@ -616,7 +670,8 @@ namespace {
          * @static 
          */
         public static function isDeferredService($service){
-            return \Illuminate\Foundation\Application::isDeferredService($service);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::isDeferredService($service);
         }
         
         /**
@@ -627,7 +682,8 @@ namespace {
          * @static 
          */
         public static function configureMonologUsing($callback){
-            return \Illuminate\Foundation\Application::configureMonologUsing($callback);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::configureMonologUsing($callback);
         }
         
         /**
@@ -637,7 +693,8 @@ namespace {
          * @static 
          */
         public static function hasMonologConfigurator(){
-            return \Illuminate\Foundation\Application::hasMonologConfigurator();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::hasMonologConfigurator();
         }
         
         /**
@@ -647,7 +704,8 @@ namespace {
          * @static 
          */
         public static function getMonologConfigurator(){
-            return \Illuminate\Foundation\Application::getMonologConfigurator();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getMonologConfigurator();
         }
         
         /**
@@ -657,7 +715,8 @@ namespace {
          * @static 
          */
         public static function getLocale(){
-            return \Illuminate\Foundation\Application::getLocale();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getLocale();
         }
         
         /**
@@ -668,7 +727,8 @@ namespace {
          * @static 
          */
         public static function setLocale($locale){
-            \Illuminate\Foundation\Application::setLocale($locale);
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::setLocale($locale);
         }
         
         /**
@@ -679,7 +739,8 @@ namespace {
          * @static 
          */
         public static function isLocale($locale){
-            return \Illuminate\Foundation\Application::isLocale($locale);
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::isLocale($locale);
         }
         
         /**
@@ -689,7 +750,8 @@ namespace {
          * @static 
          */
         public static function registerCoreContainerAliases(){
-            \Illuminate\Foundation\Application::registerCoreContainerAliases();
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::registerCoreContainerAliases();
         }
         
         /**
@@ -699,7 +761,8 @@ namespace {
          * @static 
          */
         public static function flush(){
-            \Illuminate\Foundation\Application::flush();
+            //Method inherited from \Illuminate\Foundation\Application            
+            \App\MyApp::flush();
         }
         
         /**
@@ -710,7 +773,8 @@ namespace {
          * @static 
          */
         public static function getNamespace(){
-            return \Illuminate\Foundation\Application::getNamespace();
+            //Method inherited from \Illuminate\Foundation\Application            
+            return \App\MyApp::getNamespace();
         }
         
         /**
@@ -722,7 +786,7 @@ namespace {
          */
         public static function when($concrete){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::when($concrete);
+            return \App\MyApp::when($concrete);
         }
         
         /**
@@ -734,7 +798,7 @@ namespace {
          */
         public static function resolved($abstract){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::resolved($abstract);
+            return \App\MyApp::resolved($abstract);
         }
         
         /**
@@ -746,7 +810,7 @@ namespace {
          */
         public static function isAlias($name){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::isAlias($name);
+            return \App\MyApp::isAlias($name);
         }
         
         /**
@@ -760,7 +824,7 @@ namespace {
          */
         public static function bind($abstract, $concrete = null, $shared = false){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::bind($abstract, $concrete, $shared);
+            \App\MyApp::bind($abstract, $concrete, $shared);
         }
         
         /**
@@ -774,7 +838,7 @@ namespace {
          */
         public static function addContextualBinding($concrete, $abstract, $implementation){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::addContextualBinding($concrete, $abstract, $implementation);
+            \App\MyApp::addContextualBinding($concrete, $abstract, $implementation);
         }
         
         /**
@@ -788,7 +852,7 @@ namespace {
          */
         public static function bindIf($abstract, $concrete = null, $shared = false){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::bindIf($abstract, $concrete, $shared);
+            \App\MyApp::bindIf($abstract, $concrete, $shared);
         }
         
         /**
@@ -801,7 +865,7 @@ namespace {
          */
         public static function singleton($abstract, $concrete = null){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::singleton($abstract, $concrete);
+            \App\MyApp::singleton($abstract, $concrete);
         }
         
         /**
@@ -813,7 +877,7 @@ namespace {
          */
         public static function share($closure){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::share($closure);
+            return \App\MyApp::share($closure);
         }
         
         /**
@@ -827,7 +891,7 @@ namespace {
          */
         public static function extend($abstract, $closure){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::extend($abstract, $closure);
+            \App\MyApp::extend($abstract, $closure);
         }
         
         /**
@@ -840,7 +904,7 @@ namespace {
          */
         public static function instance($abstract, $instance){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::instance($abstract, $instance);
+            \App\MyApp::instance($abstract, $instance);
         }
         
         /**
@@ -853,7 +917,7 @@ namespace {
          */
         public static function tag($abstracts, $tags){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::tag($abstracts, $tags);
+            \App\MyApp::tag($abstracts, $tags);
         }
         
         /**
@@ -865,7 +929,7 @@ namespace {
          */
         public static function tagged($tag){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::tagged($tag);
+            return \App\MyApp::tagged($tag);
         }
         
         /**
@@ -878,7 +942,7 @@ namespace {
          */
         public static function alias($abstract, $alias){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::alias($abstract, $alias);
+            \App\MyApp::alias($abstract, $alias);
         }
         
         /**
@@ -891,7 +955,7 @@ namespace {
          */
         public static function rebinding($abstract, $callback){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::rebinding($abstract, $callback);
+            return \App\MyApp::rebinding($abstract, $callback);
         }
         
         /**
@@ -905,7 +969,7 @@ namespace {
          */
         public static function refresh($abstract, $target, $method){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::refresh($abstract, $target, $method);
+            return \App\MyApp::refresh($abstract, $target, $method);
         }
         
         /**
@@ -918,7 +982,7 @@ namespace {
          */
         public static function wrap($callback, $parameters = array()){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::wrap($callback, $parameters);
+            return \App\MyApp::wrap($callback, $parameters);
         }
         
         /**
@@ -932,7 +996,7 @@ namespace {
          */
         public static function call($callback, $parameters = array(), $defaultMethod = null){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::call($callback, $parameters, $defaultMethod);
+            return \App\MyApp::call($callback, $parameters, $defaultMethod);
         }
         
         /**
@@ -946,7 +1010,7 @@ namespace {
          */
         public static function build($concrete, $parameters = array()){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::build($concrete, $parameters);
+            return \App\MyApp::build($concrete, $parameters);
         }
         
         /**
@@ -959,7 +1023,7 @@ namespace {
          */
         public static function resolving($abstract, $callback = null){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::resolving($abstract, $callback);
+            \App\MyApp::resolving($abstract, $callback);
         }
         
         /**
@@ -972,7 +1036,7 @@ namespace {
          */
         public static function afterResolving($abstract, $callback = null){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::afterResolving($abstract, $callback);
+            \App\MyApp::afterResolving($abstract, $callback);
         }
         
         /**
@@ -984,7 +1048,7 @@ namespace {
          */
         public static function isShared($abstract){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::isShared($abstract);
+            return \App\MyApp::isShared($abstract);
         }
         
         /**
@@ -995,7 +1059,7 @@ namespace {
          */
         public static function getBindings(){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::getBindings();
+            return \App\MyApp::getBindings();
         }
         
         /**
@@ -1007,7 +1071,7 @@ namespace {
          */
         public static function forgetInstance($abstract){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::forgetInstance($abstract);
+            \App\MyApp::forgetInstance($abstract);
         }
         
         /**
@@ -1018,7 +1082,7 @@ namespace {
          */
         public static function forgetInstances(){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::forgetInstances();
+            \App\MyApp::forgetInstances();
         }
         
         /**
@@ -1029,7 +1093,7 @@ namespace {
          */
         public static function getInstance(){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::getInstance();
+            return \App\MyApp::getInstance();
         }
         
         /**
@@ -1041,7 +1105,7 @@ namespace {
          */
         public static function setInstance($container){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::setInstance($container);
+            \App\MyApp::setInstance($container);
         }
         
         /**
@@ -1053,7 +1117,7 @@ namespace {
          */
         public static function offsetExists($key){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::offsetExists($key);
+            return \App\MyApp::offsetExists($key);
         }
         
         /**
@@ -1065,7 +1129,7 @@ namespace {
          */
         public static function offsetGet($key){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::offsetGet($key);
+            return \App\MyApp::offsetGet($key);
         }
         
         /**
@@ -1078,7 +1142,7 @@ namespace {
          */
         public static function offsetSet($key, $value){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::offsetSet($key, $value);
+            \App\MyApp::offsetSet($key, $value);
         }
         
         /**
@@ -1090,7 +1154,7 @@ namespace {
          */
         public static function offsetUnset($key){
             //Method inherited from \Illuminate\Container\Container            
-            \Illuminate\Foundation\Application::offsetUnset($key);
+            \App\MyApp::offsetUnset($key);
         }
         
     }
@@ -11325,6 +11389,22 @@ namespace {
         public static function offsetUnset($key){
             //Method inherited from \DebugBar\DebugBar            
             return \Barryvdh\Debugbar\LaravelDebugbar::offsetUnset($key);
+        }
+        
+    }
+
+
+    class Recaptcha extends \Greggilbert\Recaptcha\Facades\Recaptcha{
+        
+        /**
+         * Render the recaptcha
+         *
+         * @param array $options
+         * @return \Greggilbert\Recaptcha\view 
+         * @static 
+         */
+        public static function render($options = array()){
+            return \Greggilbert\Recaptcha\Recaptcha::render($options);
         }
         
     }
