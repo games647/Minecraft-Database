@@ -17,9 +17,9 @@
 
                 <div class="serverInfo">
 @if (file_exists(public_path() . "/img/favicons/" . $server->address . ".png"))
-                    <img src="/img/favicons/{{ $server->address }}.png" alt="Server favicon"/>
+                    <img class="serverIcon" src="/img/favicons/{{ $server->address }}.png" alt="Server favicon"/>
 @else
-                    <img src="/img/favicons/default.png" alt="Server favicon"/>
+                    <img class="serverIcon" src="/img/favicons/default.png" alt="{{ $server->address }} favicon"/>
 @endif
                     <table class="table">
                         <tr>

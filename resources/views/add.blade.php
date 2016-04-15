@@ -19,7 +19,8 @@
 
                 <form method="POST" action="/server/add">
                     <div class="form-group">
-                        <input name="address" type="text" class="form-control" value="{{ $address or '' }}"/>
+                        <input name="address" type="text" class="form-control" value="{{ $address or '' }}"
+                               placeholder="example.minecraft.com"/>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="submit" class="form-control" />
                     </div>

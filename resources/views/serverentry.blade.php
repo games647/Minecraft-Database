@@ -1,10 +1,11 @@
                         <tr>
-                            <td class="serverIcon">
+                            <td>
                                 <a href="/server/{{ $server->address }}">
 @if (file_exists(public_path() . "/img/favicons/" . $server->address . ".png"))
-                                    <img src="/img/favicons/{{ $server->address }}.png" alt="Server favicon"/>
+                                    <img class="serverIcon" src="/img/favicons/{{ $server->address }}.png"
+                                         alt="{{ $server->address }} favicon"/>
 @else
-                                    <img src="/img/favicons/default.png" alt="Server favicon"/>
+                                    <img class="serverIcon" src="/img/favicons/default.png" alt="Default favicon"/>
 @endif
                                 </a>
                             </td>
@@ -56,5 +57,4 @@
                                 <div class="offline">0 / {{ $server->maxplayers }}</div>
 @endif
                             </td>
-                            <td valign="center">{{ $server->votes }}</td>
                         </tr>

@@ -43,7 +43,7 @@
             <footer>
                 <p>This project is open source | Visit us on
                     <a href="https://github.com/games647/Minecraft-Database">Github</a>
-                    - If you like the project please leave a star <3
+                    - If you like the project please leave a star
                 </p>
                 <p>
                     This website collects cookies in order to login users and provide security to them. For more details

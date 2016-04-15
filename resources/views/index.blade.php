@@ -9,9 +9,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th width="10%">Rank</th>
-                            <th width="70%">Server</th>
-                            <th width="20%">Players</th>
+                            <th class="serverIcon">Rank</th>
+                            <th class="serverInfo">Server</th>
+                            <th class="players">Players</th>
                         </tr>
                     </thead>
                     <tbody>
