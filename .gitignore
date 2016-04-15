@@ -1,13 +1,42 @@
 /vendor
 /node_modules
 /.vagrant
+
+# Homestead files
 Vagrantfile
 Homestead.yaml
 Homestead.json
 
-#Exclude os dependent caches
+# Exclude os dependent caches
 Thumbs.db
 .DS_Store
 
 # Exclude local configuration
 .env
+
+# We created a symbolic link from the www folder to the public folder
+# Git should scan it
+/www
+
+# Exclude IDE config, styles, ...
+
+# Netbeans
+/nbproject
+
+# Jetbrains (IntelliJ, Webstorm, PHPStorm)
+/.idea
+
+# Eclipse
+
+# Eclipse Core
+.settings/
+.project
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# Sublime
+
+*.sublime-project
+
+# workspace files are user-specific
+*.sublime-workspace
