@@ -1,11 +1,11 @@
                         <tr>
-                            <td>
+                            <td class="serverIcon">
                                 <a href="/server/{{ $server->address }}">
 @if (file_exists(public_path() . "/img/favicons/" . $server->address . ".png"))
-                                    <img class="serverIcon" src="/img/favicons/{{ $server->address }}.png"
+                                    <img src="/img/favicons/{{ $server->address }}.png"
                                          alt="{{ $server->address }} favicon"/>
 @else
-                                    <img class="serverIcon" src="/img/favicons/default.png" alt="Default favicon"/>
+                                    <img src="/img/favicons/default.png" alt="Default favicon"/>
 @endif
                                 </a>
                             </td>

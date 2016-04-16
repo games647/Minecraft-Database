@@ -2,6 +2,8 @@
 
 @section('title', 'Terms of Service')
 
+@section('description', 'Terms of Service for this website')
+
 @section('content')
         <div class="container">
             <div class="allContent">

@@ -2,6 +2,8 @@
 
 @section('title', 'Privacy')
 
+@section('description', 'Learn more about our privacy policies. How we use your data and how you delete them')
+
 @section('content')
         <div class="container">
             <div class="allContent">

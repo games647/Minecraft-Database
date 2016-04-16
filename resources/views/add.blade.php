@@ -2,6 +2,10 @@
 
 @section('title', 'Add server')
 
+@section('keywords', "add minecraft server")
+
+@section('description', "Add your favorite minecraft server to the database in order to publish it")
+
 @section('content')
         <div class="container">
             <div class="allContent">
@@ -20,7 +24,7 @@
                 <form method="POST" action="/server/add">
                     <div class="form-group">
                         <input name="address" type="text" class="form-control" value="{{ $address or '' }}"
-                               placeholder="example.minecraft.com"/>
+                               placeholder="example.minecraft.com" required />
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="submit" class="form-control" />
                     </div>

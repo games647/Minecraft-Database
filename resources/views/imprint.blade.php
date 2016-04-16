@@ -2,6 +2,8 @@
 
 @section('title', 'Imprint')
 
+@section('description', 'General information about this website and how you contact us')
+
 @section('content')
         <div class="container">
             <div class="allContent">
@@ -74,6 +76,11 @@
                         <a href="https://github.com/xPaw/PHP-Minecraft-Query/blob/master/LICENSE">MIT </a>
                         -
                         <a href="https://github.com/xPaw/PHP-Minecraft-Query">Source</a>
+                    </li>
+                    <li>Sitemap generator -
+                        <a href="https://github.com/RoumenDamianoff/laravel-sitemap/blob/master/LICENSE">MIT </a>
+                        -
+                        <a href="https://github.com/RoumenDamianoff/laravel-sitemap">Source</a>
                     </li>
                 </ul>
             </div>
