@@ -19,15 +19,13 @@ class ServerController extends Controller {
 
     public function addServer(Request $request) {
         $rules = array(
-            'address'  => 'required|active_url',
-            'address'  => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
+            'address'  => 'required|active_url|Between:4,32',
             'g-recaptcha-response' => 'required|recaptcha',
         );
 
         if (env('APP_DEBUG')) {
             $debugRules = array(
-                'address' => 'required|active_url',
-                'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
+                'address'  => 'required|active_url|Between:4,32',
               //disable the captcha in order to hide the api keys and still be able to test the functionality of this
               //website
 //            'g-recaptcha-response' => 'required|recaptcha',

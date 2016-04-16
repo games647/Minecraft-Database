@@ -4,6 +4,7 @@
     "keywords": ["database", "minecraft", "serverlist"],
     "license": "LGPL v3",
     "type": "project",
+    "homepage": "http://minecraft-database.com/",
     "support": {
         "issues": "https://github.com/games647/Minecraft-Database/issues",
         "source": "https://github.com/games647/Minecraft-Database"

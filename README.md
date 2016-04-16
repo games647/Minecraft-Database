@@ -43,7 +43,6 @@ This project uses the Laravel framework. They have great documentation here: htt
     * Delete it
 * Skin database
 * Server geo location
-* **Better** SEO
 * Player database
 * API for all features, including UUID resolver, Banner generator, ...
 
@@ -190,3 +189,6 @@ sass files manually
 * PHP-Minecraft-Query
 [Source](https://github.com/xPaw/PHP-Minecraft-Query)
 [License: MIT](https://github.com/xPaw/PHP-Minecraft-Query/blob/master/LICENSE)
+* Sitemap generator
+[Source](https://github.com/RoumenDamianoff/laravel-sitemap)
+[License: MIT](https://github.com/RoumenDamianoff/laravel-sitemap/blob/master/LICENSE)

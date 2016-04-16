@@ -41,8 +41,8 @@ class Ping extends Command {
     public function handle() {
         $this->info("Pinging server instances");
 
-        $servers = \App\Server::paginate(25);
-        $bar = $this->output->createProgressBar($servers->total());
+        $servers = \App\Server::all();
+        $bar = $this->output->createProgressBar($servers->count());
 
         /* @var $server \App\Server */
         foreach ($servers as $server) {
