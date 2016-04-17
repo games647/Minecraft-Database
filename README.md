@@ -64,7 +64,7 @@ TODO:
 ### Requirements
 
 * PHP 5.7+
-* MySQL or MariaDB (for development you use SQLite too which has no additional setup requirement)
+* MySQL or MariaDB (for development you can use SQLite too which has no additional setup requirement)
 * Webserver with PHP support (or php artisan serve )
 
 #### Quick setup using virtual machine (Homestead)
