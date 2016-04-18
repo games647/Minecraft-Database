@@ -4,6 +4,10 @@
 
 @section('description', 'Terms of Service for this website')
 
+@push('meta')
+    <meta name="robots" content="noindex,nofollow">
+@endpush
+
 @section('content')
         <div class="container">
             <div class="allContent">

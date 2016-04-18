@@ -4,6 +4,10 @@
 
 @section('description', 'Learn more about our privacy policies. How we use your data and how you delete them')
 
+@push('meta')
+    <meta name="robots" content="noindex,nofollow">
+@endpush
+
 @section('content')
         <div class="container">
             <div class="allContent">

@@ -4,6 +4,10 @@
 
 @section('description', 'General information about this website and how you contact us')
 
+@push('meta')
+<meta name="robots" content="noindex,nofollow">
+@endpush
+
 @section('content')
         <div class="container">
             <div class="allContent">

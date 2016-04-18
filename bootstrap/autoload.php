@@ -1,6 +1,7 @@
 <?php
 
 define('LARAVEL_START', microtime(true));
+define('LARAVEL_MEMORY', memory_get_usage());
 
 /*
 |--------------------------------------------------------------------------
