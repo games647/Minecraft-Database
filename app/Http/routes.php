@@ -87,7 +87,7 @@ Route::get('/sitemap.xml', function() {
             if (file_exists(public_path() . "/img/favicons/$address.png")) {
                 $images[] = array(
                     'url' => URL::to("/img/favicons", "$address.png"),
-                    'title' => $server->address . " favicon"
+                    'title' => $server->address . "minecraft server favicon"
                 );
             }
 

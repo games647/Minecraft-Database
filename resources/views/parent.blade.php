@@ -30,7 +30,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="/server/add">Add server</a></li>
-                        <li><a href="https://github.com/games647/Minecraft-Database#api-documentation">API</a></li>
+                        <li><a href="https://github.com/games647/Minecraft-Database/wiki/API">API</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/privacy">Privacy</a></li>
