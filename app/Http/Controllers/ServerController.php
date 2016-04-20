@@ -19,15 +19,15 @@ class ServerController extends Controller {
 
     public function addServer(Request $request) {
         $rules = array(
-            'address'  => 'required|active_url|Between:4,32',
+            'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
             'g-recaptcha-response' => 'required|recaptcha',
         );
 
         if (env('APP_DEBUG')) {
             $debugRules = array(
-                'address'  => 'required|active_url|Between:4,32',
-              //disable the captcha in order to hide the api keys and still be able to test the functionality of this
-              //website
+                'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
+               //disable the captcha in order to hide the api keys and still be able to test the functionality of this
+               //website
 //            'g-recaptcha-response' => 'required|recaptcha',
             );
             $validator = \Validator::make($request->input(), $debugRules);
@@ -49,6 +49,8 @@ class ServerController extends Controller {
                 $server->save();
 
                 \LOG::info("Added server: " . $address);
+                \Artisan::call("app:ping", ["address" => $address]);
+
                 return \Redirect::action("ServerController@showServer", [$address]);
             }
         } else {

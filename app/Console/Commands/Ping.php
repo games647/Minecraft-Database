@@ -15,7 +15,7 @@ class Ping extends Command {
      *
      * @var string
      */
-    protected $signature = 'app:ping';
+    protected $signature = 'app:ping {address?}';
 
     /**
      * The console command description.
@@ -41,6 +41,19 @@ class Ping extends Command {
     public function handle() {
         $this->info("Pinging server instances");
 
+        $address = $this->argument("address");
+        if ($address) {
+            $this->info("Pinging server: " . $address);
+            $server = \App\Server::where("address", '=', $address)->first();
+            if ($server) {
+                $this->pingServer($server);
+            } else {
+                $this->error("Server not in the database");
+            }
+
+            return;
+        }
+
         $servers = \App\Server::all();
         $bar = $this->output->createProgressBar($servers->count());
 
@@ -58,10 +71,11 @@ class Ping extends Command {
 
     function pingServer($server) {
         try {
-            $ping = new MinecraftPing($server->address, self::DEFAULT_MINECRAFT_PORT, 10);
+            $ping = new MinecraftPing($server->address, self::DEFAULT_MINECRAFT_PORT, 1);
             $result = $ping->Query();
 
             $this->parsePingData($server, $result);
+            $server->save();
         } catch (MinecraftPingException $exception) {
             $this->error($server->address . " " . $exception->getMessage());
 
@@ -115,8 +129,6 @@ class Ping extends Command {
         if (isset($data['favicon'])) {
             $this->saveIcon($server->address, $data['favicon']);
         }
-
-        $server->save();
     }
 
     function isPremium($playername, $uuid) {
@@ -156,7 +168,7 @@ class Ping extends Command {
     function pingDomain($domain) {
         //https://stackoverflow.com/questions/9841635/how-to-ping-a-server-port-with-php
         $starttime = microtime(true);
-        $file = fsockopen($domain, self::DEFAULT_MINECRAFT_PORT, $errno, $errstr, 2);
+        $file = fsockopen($domain, self::DEFAULT_MINECRAFT_PORT, $errno, $errstr, 1);
         $stoptime = microtime(true);
         $status = 0;
 
