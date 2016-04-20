@@ -10,5 +10,5 @@ do
   now=$(date +%T)
   echo "Tick: $now"
   /usr/local/php7.0/bin/php artisan schedule:run >> /dev/null 2>&1
-  sleep 59
+  sleep 50
 done
