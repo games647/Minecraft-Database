@@ -54,7 +54,7 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     });
 
     Route::get('/server/{address}', function($address) {
-        return App\Server::whereAddress($address)->first();
+        return App\Server::whereAddress($address)->firstOrFail();
     });
 
     Route::get('/server/{address}/favicon', function($address) {

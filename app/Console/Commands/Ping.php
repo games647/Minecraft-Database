@@ -141,7 +141,7 @@ class Ping extends Command {
      * @param $username string
      * @return string
      */
-    function constructOfflinePlayerUuid($username) {
+    public static function constructOfflinePlayerUuid($username) {
         //extracted from the java code:
         //new GameProfile(UUID.nameUUIDFromBytes(("OfflinePlayer:" + name).getBytes(Charsets.UTF_8)), name));
         $data = hex2bin(md5("OfflinePlayer:" . $username));
@@ -152,7 +152,7 @@ class Ping extends Command {
         return $this->createJavaUuid(bin2hex($data));
     }
 
-    function createJavaUuid($striped) {
+    public static function createJavaUuid($striped) {
         //example: 069a79f4-44e9-4726-a5be-fca90e38aaf5
         $components = array(
             substr($striped, 0, 8),
