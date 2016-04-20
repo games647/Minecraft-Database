@@ -13,6 +13,7 @@ This project uses the Laravel framework. They have great documentation here: htt
 ### General
 
 * Open source
+* API friendly
 * Flexible / mostly automatically
 * Simple
 * No user authentication needed
@@ -42,22 +43,15 @@ This project uses the Laravel framework. They have great documentation here: htt
     * Private/hide -> only you can still see the statistics
     * Delete it
 * Skin database
+* Plugin database for Spigot (spigotmc.org), Bukkit (dev.bukkit.org) and Sponge (https://ore-staging.spongepowered.org/)
+    * Sponge: https://github.com/SpongePowered/Ore/blob/1420c404ded5ce8b392e993fe1679beaa6f15be5/conf/routes#L7
 * Server geo location
 * Player database
 * API for all features, including UUID resolver, Banner generator, ...
 
 ## API Documentation
 
-### Serverlist
-
-* /api - Get all servers as a paginated list
-* /api/server/{address} - Get specific server info
-
-TODO:
-
-* Add Java/PHP examples
-* Add API Reponse examples
-* Add API-Request property examples
+See the wiki here: https://github.com/games647/Minecraft-Database/wiki/API
 
 ## Installation
 

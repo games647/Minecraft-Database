@@ -58,7 +58,7 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     });
 
     Route::get('/server/{address}/favicon', function($address) {
-        return redirect('/public/img/favicon/' . $address);
+        return redirect('/img/favicons/' . $address . ".png");
     });
 
     Route::get('/server', function() {
@@ -67,7 +67,6 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
 });
 
 Route::get('/sitemap.xml', function() {
-    // create new sitemap object
     /* @var $sitemap Roumen\Sitemap\Sitemap */
     $sitemap = App::make("sitemap");
     if (!$sitemap->isCached()) {
