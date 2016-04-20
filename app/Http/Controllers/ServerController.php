@@ -9,8 +9,8 @@ use App\Http\Controllers\Controller;
 
 class ServerController extends Controller {
 
-    //http://regexr.com/3bl8g
-    const SERVER_REGEX = "/^((\w+\.)?\w+\.\w+|((2[0-5]{2}|1[0-9]{2}|[0-9]{1,2})\.){3}(2[0-5]{2}|1[0-9]{2}|[0-9]{1,2}))?$/";
+    //http://regexr.com/3d8n1
+    const SERVER_REGEX = "/^(([\w-]+\.)?[\w-]+\.\w+|((2[0-5]{2}|1[0-9]{2}|[0-9]{1,2})\.){3}(2[0-5]{2}|1[0-9]{2}|[0-9]{1,2}))?$/";
 
     public function index() {
         $servers = Server::where('online', true)->orderBy("players", "desc")->paginate(5);
