@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlayersTable extends Migration {
+class CreateNameHistoriesTable extends Migration {
 
     /**
      * Run the migrations.
@@ -11,16 +11,16 @@ class CreatePlayersTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('players', function (Blueprint $table) {
+        Schema::create('name_histories', function (Blueprint $table) {
             $table->increments('id')->unsigned();
 
-            $table->uuid("uuid")->unique();
+            $table->integer('player_id')->unsigned();
+            $table->foreign("player_id")->references('id')->on('players')->onDelete('cascade');
+
             $table->string("name", 16);
+            $table->bigInteger("changedToAt");
 
             $table->timestamps();
-
-            $table->index("uuid");
-            $table->index("name");
         });
     }
 
@@ -30,6 +30,6 @@ class CreatePlayersTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::drop('players');
+        Schema::drop('name_histories');
     }
 }

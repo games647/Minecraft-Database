@@ -12,7 +12,7 @@ class CreateSkinsTable extends Migration {
      */
     public function up() {
         Schema::create('skins', function (Blueprint $table) {
-            $table->increments('id')->unsigned;
+            $table->increments('id')->unsigned();
 
             $table->bigInteger("timestamp");
             $table->uuid("profileId");

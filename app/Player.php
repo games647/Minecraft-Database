@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Player whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Player whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\NameHistory[] $nameHistory
  */
 class Player extends Model {
 
@@ -30,5 +31,9 @@ class Player extends Model {
 
     public function generateOfflineUUID() {
         return Console\Commands\Ping::constructOfflinePlayerUuid($this->name);
+    }
+
+    public function nameHistory() {
+        return $this->hasMany('App\NameHistory');
     }
 }

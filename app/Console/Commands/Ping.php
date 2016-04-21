@@ -71,6 +71,9 @@ class Ping extends Command {
 
     function pingServer($server) {
         try {
+            //the minecraft ping packets from existing libraries doesn't seem to be fast enough
+            $server->ping = self::pingDomain($server->address);
+
             $ping = new MinecraftPing($server->address, self::DEFAULT_MINECRAFT_PORT, 1);
             $result = $ping->Query();
 
@@ -124,8 +127,6 @@ class Ping extends Command {
         }
 
         $server->online = true;
-        //the minecraft ping packets from existing libraries doesn't seem to be fast enough
-        $server->ping = self::pingDomain($server->address);
         if (isset($data['favicon'])) {
             $this->saveIcon($server->address, $data['favicon']);
         }

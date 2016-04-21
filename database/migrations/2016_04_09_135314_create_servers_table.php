@@ -12,7 +12,7 @@ class CreateServersTable extends Migration {
      */
     public function up() {
         Schema::create('servers', function (Blueprint $table) {
-            $table->increments('id')->unsigned;
+            $table->increments('id')->unsigned();
 
             $table->string('address');
             $table->string('motd')->nullable();

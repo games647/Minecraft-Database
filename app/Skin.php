@@ -57,9 +57,6 @@ class Skin extends Model {
     public function isSignatureValid() {
         $keyPath = resource_path("yggdrasil_session_pubkey.key");
         $pub_key = file_get_contents($keyPath);
-
-        echo $this->getEncodedData();
-
         return openssl_verify($this->getEncodedData(), $this->signature, $pub_key, "RSA-SHA1");
     }
 }
