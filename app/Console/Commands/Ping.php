@@ -79,7 +79,7 @@ class Ping extends Command {
 
             $this->parsePingData($server, $result);
             $server->save();
-        } catch (MinecraftPingException $exception) {
+        } catch (\Exception $exception) {
             $this->error($server->address . " " . $exception->getMessage());
 
             //Reset the these data online if the server was online before
@@ -133,7 +133,7 @@ class Ping extends Command {
     }
 
     function isPremium($playername, $uuid) {
-        return $this->constructOfflinePlayerUuid($playername) != $uuid;
+        return self::constructOfflinePlayerUuid($playername) != $uuid;
     }
 
     /**
@@ -150,7 +150,7 @@ class Ping extends Command {
         $data[6] = chr(ord($data[6]) & 0x0f | 0x30);
         //IETF variant
         $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
-        return $this->createJavaUuid(bin2hex($data));
+        return self::createJavaUuid(bin2hex($data));
     }
 
     public static function createJavaUuid($striped) {

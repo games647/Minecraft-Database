@@ -10,7 +10,7 @@
                 <h1>Server not found</h1>
 
                 <p>Do you want to submit it?</p>
-                <a href="/server/add/{{ $address }}" class="btn btn-default">Submit</a>
+                <a href="/server/add/{{ $address }}" class="btn btn-default" rel="noindex">Submit</a>
             </div>
         </div>
 
