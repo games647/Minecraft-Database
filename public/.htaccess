@@ -26,7 +26,7 @@
 # | Expires headers                                                    |
 # ----------------------------------------------------------------------
 
-# Serve resources with far-future expires headers.
+# Serve resources with far-future expires headers.>
 #
 # (!) If you don't control versioning with filename-based
 # cache busting, you should consider lowering the cache times
