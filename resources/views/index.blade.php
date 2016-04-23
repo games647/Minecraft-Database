@@ -5,7 +5,21 @@
 @section('content')
         <div class="container">
             <div class="allContent">
-                <h1>Minecraft Database - Serverlist</h1>
+                <div id="heading" class="col-sm-8">
+                    <h1>Minecraft Database - Serverlist</h1>
+                </div>
+                <div id="serach_container" class="col-sm-4">
+                    <form action="{{ url("search") }}" method="POST" id="search">
+                        {!! csrf_field() !!}
+                        <div class="input-group">
+                            <input type="text" class="form-control dark-background-input" name="search" placeholder="Search">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default dark-background" type="submit"><span id="search_icon" class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </form>
+                </div>
                 <table class="table">
                     <thead>
                         <tr>

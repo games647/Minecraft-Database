@@ -90,3 +90,43 @@ body {
         float: left;
     }
 }
+
+#heading
+{
+
+}
+
+#serach_container
+{
+
+}
+
+#search
+{
+    width: 250px;
+    position: absolute;
+    float: right;
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+.dark-background
+{
+    background-color: #222;
+}
+
+.dark-background:hover
+{
+    background-color: #2d2d2d;
+}
+
+.dark-background-input
+{
+    color: white;
+    background-color: #222;
+}
+
+#search_icon
+{
+    color: white;
+}
