@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Server;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
@@ -44,9 +43,9 @@ class ServerController extends Controller {
 
         if (env('APP_DEBUG')) {
             $debugRules = array(
-                'address' => array('required', 'Between:4,32', 'regex:' . Server::SERVER_REGEX),
-               //disable the captcha in order to hide the api keys and still be able to test the functionality of this
-               //website
+                'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
+                    //disable the captcha in order to hide the api keys and still be able to test the functionality of this
+                    //website
 //            'g-recaptcha-response' => 'required|recaptcha',
             );
             $validator = \Validator::make($request->input(), $debugRules);
