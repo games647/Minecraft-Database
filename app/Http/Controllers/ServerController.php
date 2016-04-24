@@ -16,15 +16,15 @@ class ServerController extends Controller {
 
     public function index() {
         $servers = Server::where('online', true)->orderBy("players", "desc")->paginate(5);
-        return view('index', ['servers' => $servers]);
-
-
+        
         OpenGraph::addImage("favicon.ico"); // add image url
         OpenGraph::setTitle("Minecraft-Database"); // define title
         OpenGraph::setDescription("Database for Minecraft Servers");  // define description
         OpenGraph::setUrl(url("/")); // define url
         OpenGraph::setSiteName("Minecraft-Database");
         OpenGraph::generate();
+        
+        return view('index', ['servers' => $servers]);
     }
 
     public function addServer(Request $request) {
