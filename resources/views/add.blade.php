@@ -10,7 +10,6 @@
         <div class="container">
             <div class="allContent">
                 <h1>Add server</h1>
-
 @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>

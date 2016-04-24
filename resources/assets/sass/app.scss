@@ -91,18 +91,7 @@ body {
     }
 }
 
-#heading
-{
-
-}
-
-#serach_container
-{
-
-}
-
-#search
-{
+#search {
     width: 250px;
     position: absolute;
     float: right;
@@ -110,23 +99,19 @@ body {
     margin-bottom: 10px;
 }
 
-.dark-background
-{
+.dark-background {
     background-color: #222;
 }
 
-.dark-background:hover
-{
+.dark-background:hover {
     background-color: #2d2d2d;
 }
 
-.dark-background-input
-{
+.dark-background-input {
     color: white;
     background-color: #222;
 }
 
-#search_icon
-{
+#search_icon {
     color: white;
 }

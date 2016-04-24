@@ -43,7 +43,6 @@
 
 @yield('content')
 
-
         <div class="container">
             <footer>
                 <p>This project is open source | Visit us on

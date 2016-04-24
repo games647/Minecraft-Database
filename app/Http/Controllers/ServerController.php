@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Server;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\App;
 
 class ServerController extends Controller {
 
     //http://regexr.com/3d8n1
+    const SERVER_REGEX = "/^(([\w-]+\.)?[\w-]+\.\w+|((2[0-5]{2}|1[0-9]{2}|[0-9]{1,2})\.){3}(2[0-5]{2}|1[0-9]{2}|[0-9]{1,2}))?$/";
 
     public function index() {
         $servers = Server::where('online', true)->orderBy("players", "desc")->paginate(5);
@@ -20,15 +18,15 @@ class ServerController extends Controller {
 
     public function addServer(Request $request) {
         $rules = array(
-            'address' => array('required', 'Between:4,32', 'regex:' . Server::SERVER_REGEX),
+            'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
             'g-recaptcha-response' => 'required|recaptcha',
         );
 
         if (env('APP_DEBUG')) {
             $debugRules = array(
-                'address' => array('required', 'Between:4,32', 'regex:' . Server::SERVER_REGEX),
-               //disable the captcha in order to hide the api keys and still be able to test the functionality of this
-               //website
+                'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
+                    //disable the captcha in order to hide the api keys and still be able to test the functionality of this
+                    //website
 //            'g-recaptcha-response' => 'required|recaptcha',
             );
             $validator = \Validator::make($request->input(), $debugRules);
@@ -64,7 +62,7 @@ class ServerController extends Controller {
     public function showServer($id) {
         if (is_numeric($id)) {
             $server = Server::find($id);
-        } else if (preg_match(Server::SERVER_REGEX, $id)) {
+        } else if (preg_match(self::SERVER_REGEX, $id)) {
             /* @var $server Server */
             $server = Server::where("address", '=', $id)->first();
         } else {
