@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Server;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
+use OpenGraph;
+use Twitter;
 
 class ServerController extends Controller {
 
@@ -16,6 +18,22 @@ class ServerController extends Controller {
     public function index() {
         $servers = Server::where('online', true)->orderBy("players", "desc")->paginate(5);
         return view('index', ['servers' => $servers]);
+
+
+        OpenGraph::addImage("favicon.ico"); // add image url
+        OpenGraph::setTitle("Minecraft-Database"); // define title
+        OpenGraph::setDescription("Database for Minecraft Servers");  // define description
+        OpenGraph::setUrl(url("/")); // define url
+        OpenGraph::setSiteName("Minecraft-Database");
+        OpenGraph::generate();
+
+
+        Twitter::setType("summary"); // type of twitter card tag
+        Twitter::setTitle("Minecraft-Database");
+        Twitter::setDescription("Database for Minecraft Servers"); // description of twitter card tag
+        Twitter::setUrl(url('/')); // url of twitter card tag
+        Twitter::addImage("favicon.ico"); // add image url
+        Twitter::generate();
     }
 
     public function addServer(Request $request) {
@@ -72,6 +90,14 @@ class ServerController extends Controller {
         }
 
         if ($server) {
+
+            OpenGraph::addImage("/img/favicons/" .  $server->address . ".png"); // add image url
+            OpenGraph::setTitle($server->address . " Minecraft-Database"); // define title
+            OpenGraph::setDescription($server->getPlainMotd());  // define description
+            OpenGraph::setUrl(url("/server/" . $server->address)); // define url
+            OpenGraph::setSiteName($server->address . " Minecraft-Database");
+
+
             return view("server", ['server' => $server]);
         } else {
             return response()->view("notFound", ['address' => $id], 404);
