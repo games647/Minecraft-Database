@@ -25,14 +25,6 @@ class ServerController extends Controller {
         OpenGraph::setUrl(url("/")); // define url
         OpenGraph::setSiteName("Minecraft-Database");
         OpenGraph::generate();
-
-
-        Twitter::setType("summary"); // type of twitter card tag
-        Twitter::setTitle("Minecraft-Database");
-        Twitter::setDescription("Database for Minecraft Servers"); // description of twitter card tag
-        Twitter::setUrl(url('/')); // url of twitter card tag
-        Twitter::addImage("favicon.ico"); // add image url
-        Twitter::generate();
     }
 
     public function addServer(Request $request) {
