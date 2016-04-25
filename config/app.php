@@ -167,9 +167,6 @@ return [
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
 
         Roumen\Sitemap\SitemapServiceProvider::class,
-
-        // SEO Tools
-        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
     ],
 
     /*
@@ -222,11 +219,6 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
-
-        // 'SEOMeta'   => Artesaos\SEOTools\Facades\SEOMeta::class,
-        // 'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
-
-        'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
     ],
 
 ];

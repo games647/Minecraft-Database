@@ -17,8 +17,7 @@
         "barryvdh/laravel-debugbar": "^2.2",
         "xpaw/php-minecraft-query": "^1.0",
         "greggilbert/recaptcha": "^2.1",
-        "roumen/sitemap": "^2.6",
-        "artesaos/seotools": "^0.9.0"
+        "roumen/sitemap": "^2.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

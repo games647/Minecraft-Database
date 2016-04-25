@@ -111,6 +111,7 @@ folder. So it the project folder of should be located there: "INSTALL_PATH/www/m
 
 * git fetch
 * git pull
+* composer install
 * gulp
 * php artisan migrate
 

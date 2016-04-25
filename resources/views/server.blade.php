@@ -6,6 +6,25 @@
 
 @section('description', "minecraft server: " . $server->address . " description: " . $server->getPlainMotd())
 
+@push('opengraph')
+        <meta property="og:title" content="{{ $server->address }} - Minecraft server page" />
+        <meta property="og:description" content="{{ $server->getPlainMotd() }}" />
+
+        <meta property="og:url" content="{{ URL::current() }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Minecraft-Database" />
+@endpush
+
+@if (file_exists(public_path() . "/img/favicons/" . $server->address . ".png"))
+    @push('opengraph')
+        <meta property="og:image" content="{{ url("/img/favicons/" . $server->address . ".png") }}" />
+    @endpush
+@else
+    @push('opengraph')
+        <meta property="og:image" content="{{ url("/img/favicons/default.png") }}" />
+    @endpush
+@endif
+
 @section('content')
 
         <div class="container">

@@ -1,6 +1,17 @@
 @extends('parent')
 
-@section('title', 'Serverlist')
+@section('title', 'Serverlist page ' . $servers->currentPage())
+
+@section('description', "A Minecraft multiplayer server liste page: " . $servers->currentPage())
+
+@push('opengraph')
+        <meta property="og:title" content="Serverlist page: {{ $servers->currentPage() }}" />
+        <meta property="og:description" content="A Minecraft multiplayer server list to find your favorite servers"/>
+        <meta property="og:image" content="{{ url("/favicon.ico") }}" />
+        <meta property="og:url" content="{{ URL::current() }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Minecraft-Database" />
+@endpush
 
 @section('content')
         <div class="container">

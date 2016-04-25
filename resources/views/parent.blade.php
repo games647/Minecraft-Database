@@ -8,9 +8,8 @@
               content="@yield('keywords', '') minecraft multiplayer serverlist, minecraft database, minecraft server"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {!! OpenGraph::generate() !!}
-
-    @stack('meta')
+@stack('opengraph')
+@stack('meta')
 
         <title>@yield('title') | Minecraft Database</title>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>

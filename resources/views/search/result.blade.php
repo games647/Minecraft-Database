@@ -2,13 +2,9 @@
 
 @section('title', 'Search in Database')
 
-@section('keywords', "search server database")
+@section('keywords', "search, server, database")
 
 @section('description', "Search servers in the Database")
-
-@push('meta')
-    <meta name="robots" content="noindex,nofollow">
-@endpush
 
 @section('content')
         <div class="container">

@@ -5,7 +5,7 @@
 @section('description', 'Terms of Service for this website')
 
 @push('meta')
-    <meta name="robots" content="noindex,nofollow">
+        <meta name="robots" content="noindex,nofollow">
 @endpush
 
 @section('content')

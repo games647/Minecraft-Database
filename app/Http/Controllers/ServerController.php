@@ -2,34 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Server;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\App;
-use OpenGraph;
-use Twitter;
 
 class ServerController extends Controller {
 
     //http://regexr.com/3d8n1
+    const SERVER_REGEX = "/^(([\w-]+\.)?[\w-]+\.\w+|((2[0-5]{2}|1[0-9]{2}|[0-9]{1,2})\.){3}(2[0-5]{2}|1[0-9]{2}|[0-9]{1,2}))?$/";
 
     public function index() {
         $servers = Server::where('online', true)->orderBy("players", "desc")->paginate(5);
-        
-        OpenGraph::addImage("favicon.ico"); // add image url
-        OpenGraph::setTitle("Minecraft-Database"); // define title
-        OpenGraph::setDescription("Database for Minecraft Servers");  // define description
-        OpenGraph::setUrl(url("/")); // define url
-        OpenGraph::setSiteName("Minecraft-Database");
-        OpenGraph::generate();
-        
         return view('index', ['servers' => $servers]);
     }
 
     public function addServer(Request $request) {
         $rules = array(
-            'address' => array('required', 'Between:4,32', 'regex:' . Server::SERVER_REGEX),
+            'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
             'g-recaptcha-response' => 'required|recaptcha',
         );
 
@@ -73,7 +62,7 @@ class ServerController extends Controller {
     public function showServer($id) {
         if (is_numeric($id)) {
             $server = Server::find($id);
-        } else if (preg_match(Server::SERVER_REGEX, $id)) {
+        } else if (preg_match(self::SERVER_REGEX, $id)) {
             /* @var $server Server */
             $server = Server::where("address", '=', $id)->first();
         } else {
@@ -81,14 +70,6 @@ class ServerController extends Controller {
         }
 
         if ($server) {
-
-            OpenGraph::addImage("/img/favicons/" .  $server->address . ".png"); // add image url
-            OpenGraph::setTitle($server->address . " Minecraft-Database"); // define title
-            OpenGraph::setDescription($server->getPlainMotd());  // define description
-            OpenGraph::setUrl(url("/server/" . $server->address)); // define url
-            OpenGraph::setSiteName($server->address . " Minecraft-Database");
-
-
             return view("server", ['server' => $server]);
         } else {
             return response()->view("notFound", ['address' => $id], 404);

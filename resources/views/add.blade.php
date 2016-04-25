@@ -4,7 +4,16 @@
 
 @section('keywords', "add minecraft server")
 
-@section('description', "Add your favorite minecraft server to the database in order to publish it")
+@push('opengraph')
+        <meta property="og:title" content="Add server" />
+        <meta property="og:description" content="Add your favorite minecraft server to the database to publish it" />
+        <meta property="og:image" content="{{ url("/favicon.ico") }}" />
+        <meta property="og:url" content="{{ URL::current() }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Minecraft-Database" />
+@endpush
+
+@section('description', "Add your favorite minecraft server to the database to publish it")
 
 @section('content')
         <div class="container">

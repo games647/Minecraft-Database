@@ -96,6 +96,7 @@ Route::get('/sitemap.xml', function() {
         }
 
         $sitemap->add(URL::to('/server/add'), null, '0.5', 'weekly');
+        $sitemap->add(URL::to('/search'), null, '0.5', 'weekly');
     }
 
     return $sitemap->render();

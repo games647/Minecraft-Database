@@ -1,0 +1,2 @@
+# hide the sitemap xml files from git
+/vendor
