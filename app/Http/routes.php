@@ -52,7 +52,25 @@ Route::group(['middleware' => ['web']], function () {
 //API
 Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     Route::get('/', function() {
-        return App\Server::paginate();
+      
+            if(isset($_GET['filter'])) {
+
+            $filter = $_GET["filter"];
+            echo $filter;
+
+            $rules = array(
+                'filter' => array('alpha_num'),
+            );
+
+            $validator = \Validator::make(array($filter), $rules);
+            if ($validator->passes()) {
+                return App\Server::where('address', 'LIKE', "%" . $filter . "%")->paginate();
+            } else {
+                return $validator->errors();
+            }
+        } else {
+            return App\Server::paginate();
+        }
     });
 
     Route::get('/server/{address}', function($address) {
