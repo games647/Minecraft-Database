@@ -38,6 +38,8 @@ class Server extends Model {
 
     use SoftDeletes;
 
+    const SERVER_REGEX = "/^(([\w-]+\.)?[\w-]+\.\w+|((2[0-5]{2}|1[0-9]{2}|[0-9]{1,2})\.){3}(2[0-5]{2}|1[0-9]{2}|[0-9]{1,2}))?$/";
+
     /**
      * The database table used by the model.
      *
