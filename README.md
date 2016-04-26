@@ -47,6 +47,7 @@ This project uses the Laravel framework. They have great documentation here: htt
     * Sponge: https://github.com/SpongePowered/Ore/blob/1420c404ded5ce8b392e993fe1679beaa6f15be5/conf/routes#L7
 * Server geo location
 * Player database
+* Automatically detect teamspeak and website by doing a SRV lookup
 * API for all features, including UUID resolver, Banner generator, ...
 
 ## API Documentation

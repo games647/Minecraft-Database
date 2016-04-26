@@ -77,7 +77,14 @@ Route::get('/sitemap.xml', function() {
     if (!$sitemap->isCached()) {
         $servers = \App\Server::orderBy('updated_at', 'desc')->get();
 
-        $sitemap->add(URL::to('/'), collect($servers)->first()->updated_at, '1.0', 'hourly');
+        $sitemap->add(URL::to('/'), collect($servers)->first()->updated_at, '1.0', 'daily');
+
+        //add sites
+        $serverCount = $servers->count();
+        //5 = per page
+        for ($page = 1; $page <= ceil($serverCount / 5); $page++) {
+            $sitemap->add(URL::to('/') . '/?page=' . $page, collect($servers)->first()->updated_at, '0.6', 'weekly');
+        }
 
         /* @var $server \App\Server */
         foreach ($servers as $server) {
