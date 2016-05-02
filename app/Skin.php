@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $profileName
  * @property string $skinUrl
  * @property string $capeUrl
+ * @property boolean $slimModel
  * @property mixed $signature
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -22,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereProfileName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereSkinUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereCapeUrl($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Skin whereSlimModel($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereSignature($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereUpdatedAt($value)
@@ -45,6 +47,10 @@ class Skin extends Model {
 
         $textures = array();
         $textures['SKIN'] = ["url" => $this->skinUrl];
+
+        if ($this->slimModel) {
+            $textures['SKIN']["metadata"] = ["model" => "slim"];
+        }
 
         if ($this->capeUrl) {
             $textures['CAPE'] = ["url" => $this->capeUrl];
