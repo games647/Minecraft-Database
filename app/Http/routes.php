@@ -75,7 +75,7 @@ Route::get('/sitemap.xml', function() {
     /* @var $sitemap Roumen\Sitemap\Sitemap */
     $sitemap = App::make("sitemap");
     if (!$sitemap->isCached()) {
-        $servers = \App\Server::orderBy('updated_at', 'desc')->get();
+        $servers = \App\Server::whereOnline(true)->orderBy('updated_at', 'desc')->get();
 
         $sitemap->add(URL::to('/'), collect($servers)->first()->updated_at, '1.0', 'daily');
 
