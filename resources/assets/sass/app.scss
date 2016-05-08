@@ -99,6 +99,14 @@ body {
     margin-bottom: 10px;
 }
 
+.pagination {
+    padding: 0px;
+}
+
+.pagination>li>a, .pagination>li>span {
+    padding: 6px 24px;
+}
+
 .dark-background {
     background-color: #222;
 }
