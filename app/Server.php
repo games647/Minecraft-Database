@@ -36,6 +36,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Server extends Model {
 
+    const DEFAULT_PORT = 25565;
+
     use SoftDeletes;
 
     /**

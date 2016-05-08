@@ -22,6 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Player extends Model {
 
+    const VALID_USERNAME = "/^\w{2,16}$/";
+
     /**
      * The database table used by the model.
      *

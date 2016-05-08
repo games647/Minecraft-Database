@@ -5,46 +5,20 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use xPaw\MinecraftPing;
 use xPaw\MinecraftPingException;
+use \App\Server;
 
 class Ping extends Command {
 
-    const DEFAULT_MINECRAFT_PORT = 25565;
-
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'app:ping {address?}';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Ping all server instances from the database';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct() {
-        parent::__construct();
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle() {
         $this->info("Pinging server instances");
 
         $address = $this->argument("address");
         if ($address) {
             $this->info("Pinging server: " . $address);
-            $server = \App\Server::where("address", '=', $address)->first();
+            $server = Server::where("address", '=', $address)->first();
             if ($server) {
                 $this->pingServer($server);
             } else {
@@ -54,7 +28,7 @@ class Ping extends Command {
             return;
         }
 
-        $servers = \App\Server::all();
+        $servers = Server::orderBy("updated_at", "asc")->paginate(15464);
         $bar = $this->output->createProgressBar($servers->count());
 
         /* @var $server \App\Server */
@@ -69,12 +43,18 @@ class Ping extends Command {
         $this->output->writeln("");
     }
 
-    function pingServer($server) {
+    function pingServer(Server $server) {
         try {
             //the minecraft ping packets from existing libraries doesn't seem to be fast enough
-            $server->ping = self::pingDomain($server->address);
+            $address = $server->address;
+            $ip = $address;
+            $port = Server::DEFAULT_PORT;
 
-            $ping = new MinecraftPing($server->address, self::DEFAULT_MINECRAFT_PORT, 1);
+            $this->Get_Minecraft_IP($address, $ip, $port);
+
+            $server->ping = self::pingDomain($ip, $port);
+
+            $ping = new MinecraftPing($ip, $port, 1);
             $result = $ping->Query();
 
             $this->parsePingData($server, $result);
@@ -83,9 +63,8 @@ class Ping extends Command {
             $this->error($server->address . " " . $exception->getMessage());
 
             //Reset the these data online if the server was online before
-            if ($server->online) {
+            if ($server->online || is_null($server->online)) {
                 $server->online = 0;
-                $server->players = 0;
                 $server->save();
             }
         } finally {
@@ -102,10 +81,10 @@ class Ping extends Command {
      * motd
      * favicon
      *
-     * @param \App\Server $server
+     * @param Server $server
      * @param array $data
      */
-    function parsePingData($server, $data) {
+    function parsePingData(Server $server, array $data) {
         $motd = $data['description'];
         if (is_array($motd)) {
             $motd = \MinecraftJsonColors::convertToLegacy($motd);
@@ -166,10 +145,10 @@ class Ping extends Command {
         return implode('-', $components);
     }
 
-    function pingDomain($domain) {
+    function pingDomain($domain, $port) {
         //https://stackoverflow.com/questions/9841635/how-to-ping-a-server-port-with-php
         $starttime = microtime(true);
-        $file = fsockopen($domain, self::DEFAULT_MINECRAFT_PORT, $errno, $errstr, 1);
+        $file = fsockopen($domain, $port, $errno, $errstr, 1);
         $stoptime = microtime(true);
         $status = 0;
 
@@ -199,6 +178,39 @@ class Ping extends Command {
         }
     }
 
+    //extracted from https://github.com/xPaw/PHP-Minecraft-Query/issues/34
+    function Get_Minecraft_IP($addr, &$ip, &$port) {
+        if (ip2long($addr) !== FALSE) {
+            //server address is an ip
+            return $ip = $addr;
+        }
+
+        $port = Server::DEFAULT_PORT;
+
+        $result = dns_get_record('_minecraft._tcp.' . $addr, DNS_SRV);
+        $this->info(count($result));
+
+        if (count($result) > 0) {
+            if (array_key_exists('target', $result[0])) {
+                $addr = $result[0]['target'];
+            }
+
+            if (array_key_exists('port', $result[0])) {
+                $port = $result[0]['port'];
+            }
+
+            $this->info("Found SRV-Record");
+        }
+
+        $result = dns_get_record($addr, DNS_A);
+
+        if (count($result) > 0 && array_key_exists('ip', $result[0])) {
+            $ip = $result[0]['ip'];
+            $this->info("Found A-Record");
+        } else {
+            $ip = $addr;
+        }
+    }
 //    /**
 //     * needs enabled-qurey=true
 //     *

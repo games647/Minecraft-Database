@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel {
     protected $commands = [
 //         Commands\Inspire::class,
         Commands\Ping::class,
+//        Commands\NameResolve::class,
+//        Commands\NameHistory::class,
     ];
 
     /**
@@ -26,7 +28,7 @@ class Kernel extends ConsoleKernel {
     protected function schedule(Schedule $schedule) {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('app:ping')->hourly()->sendOutputTo(storage_path() . '/logs/ping.log', true);
+        $schedule->command('app:ping')->everyThirtyMinutes()->sendOutputTo(storage_path() . '/logs/ping.log', true);
 
 //        $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping();
     }
