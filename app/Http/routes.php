@@ -27,10 +27,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/server/add', "ServerController@addServer");
 
-    Route::post('/search/', "SearchController@search");
-    Route::get('/search/', function() {
-        return view('search.result');
-    });
+    Route::get('/search/', "SearchController@search");
 
     Route::get('/server/{address}', "ServerController@showServer");
 
