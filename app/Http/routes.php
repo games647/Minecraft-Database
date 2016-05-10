@@ -69,13 +69,51 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     Route::get('/server', function() {
         return redirect('/api');
     });
+
+    Route::get('/stats', function() {
+        $totalServers = App\Server::count();
+        $onlineServers = \App\Server::whereOnline(true)->count();
+
+        $serverPlayers = App\Server::whereOnline(true)->sum('players');
+        $totalServerPlayers = App\Server::whereOnline(true)->sum('maxplayers');
+
+        $onlineModeServer = App\Server::whereOnline(true)->whereOnlinemode(1)->count();
+        $offlineModeServer = App\Server::whereOnline(true)->whereOnlinemode(0)->count();
+        $unkownModeServer = App\Server::whereOnline(true)->whereOnlinemode(NULL)->count();
+
+        //todo: server geo
+        //server software stats
+        //server version stats
+
+        $avgPing = App\Server::whereOnline(true)->avg('ping');
+
+        $players = App\Player::count();
+        $skins = App\Skin::count();
+        return response()->json(
+                [
+                    'totalServers' => $totalServers,
+                    'onlineServers' => $onlineServers,
+
+                    'serverPlayers' => $serverPlayers,
+                    'totalServerPlayers' => $totalServerPlayers,
+
+                    'onlineModeServer' => $onlineModeServer,
+                    'offlineModeServer' => $offlineModeServer,
+                    'unkownModeServer' => $unkownModeServer,
+
+                    'avgPing' => $avgPing,
+
+                    'players' => $players,
+                    'skins' => $skins
+                ]);
+    });
 });
 
 Route::get('/sitemap.xml', function() {
     /* @var $sitemap Roumen\Sitemap\Sitemap */
     $sitemap = App::make("sitemap");
     if (!$sitemap->isCached()) {
-        $servers = \App\Server::whereOnline(true)->orderBy('updated_at', 'desc')->get();
+        $servers = \App\Server::whereOnline(true)->whereNotNull('motd')->orderBy('updated_at', 'desc')->get();
 
         $sitemap->add(URL::to('/'), collect($servers)->first()->updated_at, '1.0', 'daily');
 

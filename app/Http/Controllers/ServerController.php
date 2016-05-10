@@ -12,7 +12,7 @@ class ServerController extends Controller {
     const SERVER_REGEX = "/^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/";
 
     public function index() {
-        $servers = Server::where('online', true)->orderBy("players", "desc")->paginate(5);
+        $servers = Server::where('online', true)->whereNotNull('motd')->orderBy("players", "desc")->paginate(5);
         return view('index', ['servers' => $servers]);
     }
 
