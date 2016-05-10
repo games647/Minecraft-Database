@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\NameHistory whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\NameHistory whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Player $player
  */
 class NameHistory extends Model {
 

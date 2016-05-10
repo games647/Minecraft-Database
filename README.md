@@ -8,6 +8,10 @@ For images scroll down.
 
 This project uses the Laravel framework. They have great documentation here: https://laravel.com/docs/
 
+### Server page
+
+![server page](http://i.imgur.com/HHrgpl4.png)
+
 ## Features
 
 ### General
@@ -27,6 +31,10 @@ This project uses the Laravel framework. They have great documentation here: htt
 * Support for all 1.7+ servers
 * Detects online mode automatically
 
+### Index
+
+![index](http://i.imgur.com/50aiPOM.png)
+
 ## Planning (in general)
 
 * Statistics
@@ -45,7 +53,7 @@ This project uses the Laravel framework. They have great documentation here: htt
 * Skin database
 * Plugin database for Spigot (spigotmc.org), Bukkit (dev.bukkit.org) and Sponge (https://ore-staging.spongepowered.org/)
     * Sponge: https://github.com/SpongePowered/Ore/blob/1420c404ded5ce8b392e993fe1679beaa6f15be5/conf/routes#L7
-* Server geo location
+* Server GEO location
 * Player database
 * Automatically detect teamspeak and website by doing a SRV lookup
 * API for all features, including UUID resolver, Banner generator, ...
@@ -154,16 +162,6 @@ sass files manually
 ### Reset your database
 
 * php artisan migrate:refresh --seed
-
-## Screenshots
-
-### Index
-
-![index](http://i.imgur.com/50aiPOM.png)
-
-### Server page
-
-![server page](http://i.imgur.com/HHrgpl4.png)
 
 ## Credits
 

@@ -28,7 +28,7 @@ class Ping extends Command {
             return;
         }
 
-        $servers = Server::orderBy("updated_at", "asc")->paginate(15464);
+        $servers = Server::orderBy("updated_at", "asc")->paginate(250);
         $bar = $this->output->createProgressBar($servers->count());
 
         /* @var $server \App\Server */
@@ -84,7 +84,7 @@ class Ping extends Command {
      * @param Server $server
      * @param array $data
      */
-    function parsePingData(Server $server, array $data) {
+    function parsePingData(Server $server, $data) {
         $motd = $data['description'];
         if (is_array($motd)) {
             $motd = \MinecraftJsonColors::convertToLegacy($motd);
@@ -188,28 +188,19 @@ class Ping extends Command {
         $port = Server::DEFAULT_PORT;
 
         $result = dns_get_record('_minecraft._tcp.' . $addr, DNS_SRV);
-        $this->info(count($result));
-
         if (count($result) > 0) {
-            if (array_key_exists('target', $result[0])) {
+            if (isset($result[0]['target'])) {
                 $addr = $result[0]['target'];
             }
 
-            if (array_key_exists('port', $result[0])) {
+            if (isset($result[0]['port'])) {
                 $port = $result[0]['port'];
             }
 
             $this->info("Found SRV-Record");
         }
 
-        $result = dns_get_record($addr, DNS_A);
-
-        if (count($result) > 0 && array_key_exists('ip', $result[0])) {
-            $ip = $result[0]['ip'];
-            $this->info("Found A-Record");
-        } else {
-            $ip = $addr;
-        }
+        $ip = $addr;
     }
 //    /**
 //     * needs enabled-qurey=true

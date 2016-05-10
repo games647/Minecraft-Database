@@ -14,8 +14,6 @@ class CreateSkinsTable extends Migration {
         Schema::create('skins', function (Blueprint $table) {
             $table->increments('id')->unsigned();
 
-            //mysql doesn't save milliseconds
-            $table->bigInteger("timestamp");
             $table->uuid("profileId");
             $table->string("profileName", 16);
 
@@ -25,6 +23,9 @@ class CreateSkinsTable extends Migration {
             $table->boolean("slimModel")->default(0);
 
             $table->binary("signature");
+
+            //mysql doesn't save milliseconds
+            $table->bigInteger("timestamp");
 
             $table->timestamps();
 

@@ -10,104 +10,34 @@
   | and give it the controller to call when that URI is requested.
   |
  */
-Route::get('/.git', function() {
-    return "This project is open source. So why don't you just visit: https://github.com/games647/Minecraft-Database";
-});
-
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', "ServerController@index");
+    Route::get('/', "ServerController@redirectPage");
 
-    Route::get('/server/add/{address}', function($address) {
-        return view('add', ['address' => "$address"]);
-    });
+    Route::get('/server', "ServerController@index");
 
-    Route::get('/server/add', function() {
-        return view('add');
-    });
+    Route::get('/server/add/{address?}', "ServerController@getAdd");
 
     Route::post('/server/add', "ServerController@addServer");
 
-    Route::post('/search/', "SearchController@search");
-    Route::get('/search/', function() {
-        return view('search.result');
-    });
-
+    Route::get('/search/', "SearchController@search");
     Route::get('/server/{address}', "ServerController@showServer");
 
-    Route::get('/server', function() {
-        return redirect('/');
-    });
-
     //general
-    Route::get('/privacy', function() {
-        return view('privacy');
-    });
-
-    Route::get('/tos', function() {
-        return view('tos');
-    });
-
-    Route::get('/imprint', function() {
-        return view('imprint');
-    });
+    Route::get('/privacy', 'ContactController@privacy');
+    Route::get('/tos', 'ContactController@tos');
+    Route::get('/imprint', 'ContactController@imprint');
 });
 
 //API
 Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
-    Route::get('/', function() {
-        return App\Server::paginate();
-    });
+    Route::get('/', 'ApiController@index');
 
-    Route::get('/server/{address}', function($address) {
-        return App\Server::whereAddress($address)->firstOrFail();
-    });
+    Route::get('/server/{address}', 'ApiController@getServer');
+    Route::get('/server/{address}/favicon', 'ApiController@getIcon');
 
-    Route::get('/server/{address}/favicon', function($address) {
-        return redirect('/img/favicons/' . $address . ".png");
-    });
-
-    Route::get('/server', function() {
-        return redirect('/api');
-    });
+    Route::get('/stats', 'ApiController@stats');
 });
 
-Route::get('/sitemap.xml', function() {
-    /* @var $sitemap Roumen\Sitemap\Sitemap */
-    $sitemap = App::make("sitemap");
-    if (!$sitemap->isCached()) {
-        $servers = \App\Server::whereOnline(true)->orderBy('updated_at', 'desc')->get();
+Route::get('/sitemap.xml', 'SitemapController@get');
 
-        $sitemap->add(URL::to('/'), collect($servers)->first()->updated_at, '1.0', 'daily');
-
-        //add sites
-        $serverCount = $servers->count();
-        //5 = per page
-        for ($page = 1; $page <= ceil($serverCount / 5); $page++) {
-            $sitemap->add(URL::to('/') . '/?page=' . $page, collect($servers)->first()->updated_at, '0.6', 'weekly');
-        }
-
-        /* @var $server \App\Server */
-        foreach ($servers as $server) {
-            $address = $server->address;
-
-            $loc = URL::to("/server", $address);
-            $lastmod = $server->updated_at;
-            $freq = 'daily';
-
-            $images = array();
-            if (file_exists(public_path() . "/img/favicons/$address.png")) {
-                $images[] = array(
-                    'url' => URL::to("/img/favicons", "$address.png"),
-                    'title' => $server->address . " minecraft server favicon"
-                );
-            }
-
-            $sitemap->add($loc, $lastmod, 0.8, $freq, $images);
-        }
-
-        $sitemap->add(URL::to('/server/add'), null, '0.5', 'weekly');
-        $sitemap->add(URL::to('/search'), null, '0.5', 'weekly');
-    }
-
-    return $sitemap->render();
-});
+Route::get('/.git', 'ContactController@git');
