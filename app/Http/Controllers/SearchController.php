@@ -17,7 +17,7 @@ class SearchController extends Controller {
             'search' => array('required', 'alpha_num'),
         );
 
-        $validator = \Validator::make($request->all(), $rules);
+        $validator = validator()->make($request->all(), $rules);
         if ($validator->passes()) {
             $search = strtolower($request->input('search'));
 
