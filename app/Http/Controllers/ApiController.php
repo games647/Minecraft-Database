@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
+use App\Server;
+use App\Skin;
+use App\Player;
 
 class ApiController extends Controller {
 
@@ -20,24 +21,24 @@ class ApiController extends Controller {
     }
 
     public function stats() {
-        $totalServers = App\Server::count();
-        $onlineServers = \App\Server::whereOnline(true)->count();
+        $totalServers = Server::count();
+        $onlineServers = Server::whereOnline(true)->count();
 
-        $serverPlayers = App\Server::whereOnline(true)->sum('players');
-        $totalServerPlayers = App\Server::whereOnline(true)->sum('maxplayers');
+        $serverPlayers = Server::whereOnline(true)->sum('players');
+        $totalServerPlayers = Server::whereOnline(true)->sum('maxplayers');
 
-        $onlineModeServer = App\Server::whereOnline(true)->whereOnlinemode(1)->count();
-        $offlineModeServer = App\Server::whereOnline(true)->whereOnlinemode(0)->count();
-        $unkownModeServer = App\Server::whereOnline(true)->whereOnlinemode(NULL)->count();
+        $onlineModeServer = Server::whereOnline(true)->whereOnlinemode(1)->count();
+        $offlineModeServer = Server::whereOnline(true)->whereOnlinemode(0)->count();
+        $unkownModeServer = Server::whereOnline(true)->whereOnlinemode(NULL)->count();
 
         //todo: server geo
         //server software stats
         //server version stats
 
-        $avgPing = App\Server::whereOnline(true)->avg('ping');
+        $avgPing = Server::whereOnline(true)->avg('ping');
 
-        $players = App\Player::count();
-        $skins = App\Skin::count();
+        $players = Player::count();
+        $skins = Skin::count();
         return response()->json(
                         [
                             'totalServers' => $totalServers,

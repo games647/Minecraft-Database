@@ -30,7 +30,7 @@ Route::group(['middleware' => ['web']], function () {
 
 //API
 Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
-    Route::get('/', 'ApiController@index');
+    Route::get('/server', 'ApiController@index');
 
     Route::get('/server/{address}', 'ApiController@getServer');
     Route::get('/server/{address}/favicon', 'ApiController@getIcon');

@@ -15,6 +15,8 @@ class CreateSkinsTable extends Migration {
             $table->increments('id')->unsigned();
 
             $table->uuid("profileId");
+
+            //due name changes the profile name could be different while we want to keep this database entry
             $table->string("profileName", 16);
 
             $table->string("skinUrl");

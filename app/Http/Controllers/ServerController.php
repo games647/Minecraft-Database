@@ -32,7 +32,7 @@ class ServerController extends Controller {
 
             $validator = validator()->make($request->input(), $debugRules);
         } else {
-            $validator = validator()-make($request->input(), $rules);
+            $validator = validator()->make($request->input(), $rules);
         }
 
 

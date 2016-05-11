@@ -44,17 +44,15 @@ class Ping extends Command {
     }
 
     function pingServer(Server $server) {
+        $address = $server->address;
+        $port = Server::DEFAULT_PORT;
         try {
+            $this->Get_Minecraft_IP($address, $port);
+
             //the minecraft ping packets from existing libraries doesn't seem to be fast enough
-            $address = $server->address;
-            $ip = $address;
-            $port = Server::DEFAULT_PORT;
+            $server->ping = self::pingDomain($address, $port);
 
-            $this->Get_Minecraft_IP($address, $ip, $port);
-
-            $server->ping = self::pingDomain($ip, $port);
-
-            $ping = new MinecraftPing($ip, $port, 1);
+            $ping = new MinecraftPing($address, $port, 1);
             $result = $ping->Query();
 
             $this->parsePingData($server, $result);
@@ -179,10 +177,10 @@ class Ping extends Command {
     }
 
     //extracted from https://github.com/xPaw/PHP-Minecraft-Query/issues/34
-    function Get_Minecraft_IP($addr, &$ip, &$port) {
+    function Get_Minecraft_IP(&$addr, &$port) {
         if (ip2long($addr) !== FALSE) {
             //server address is an ip
-            return $ip = $addr;
+            return;
         }
 
         $port = Server::DEFAULT_PORT;
@@ -199,28 +197,5 @@ class Ping extends Command {
 
             $this->info("Found SRV-Record");
         }
-
-        $ip = $addr;
     }
-//    /**
-//     * needs enabled-qurey=true
-//     *
-//     * Contains the following data:
-//     * hostname	'A Minecraft Server'	MOTD for the current server
-//     * gametype	'SMP'	hardcoded to SMP
-//     * game_id	'MINECRAFT'	hardcoded to MINECRAFT
-//     * version	'1.2.5'	Server version
-//     * plugins	'CraftBukkit on Bukkit 1.2.5-R4.0:
-//     * map	'world'	Name of the current map
-//     * numplayers	'1'	Number of online players. The string could be parsed to a number.
-//     * maxplayers	'20'	Max number of players on the server. The string could be parsed to a number
-//     * hostport	'25565'	Server port. The string could be parsed to a number
-//     * hostip
-//     *
-//     * @param \App\Server $server
-//     * @param array $data
-//     */
-//    public function parseQueryData($server, $data) {
-//
-//    }
 }
