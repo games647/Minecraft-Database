@@ -5,19 +5,63 @@ namespace App\Http\Controllers;
 use App\Server;
 use App\Skin;
 use App\Player;
+use \App\PluginUsage;
 
 class ApiController extends Controller {
 
     public function index() {
-        return App\Server::paginate();
+        return Server::paginate();
     }
 
     public function getServer($address) {
-        return App\Server::whereAddress($address)->firstOrFail();
+        return Server::whereAddress($address)->firstOrFail();
     }
 
     public function getIcon($address) {
         return redirect('/img/favicons/' . $address . ".png");
+    }
+
+    public function getPlayerByUUID($uuid) {
+        return Player::whereUuid($uuid)->firstOrFail();
+    }
+
+    public function getPlayerByName($name) {
+        $players = Player::whereName($name)->get();
+        if (count($players) == 0) {
+            return response('', 404);
+        }
+
+        return $players;
+    }
+
+    public function getSkinByUUID($uuid) {
+        $skin = Skin::whereProfileId($uuid)->firstOrFail();
+        return [
+            'timestamp' => $skin->timestamp,
+            'profileId' => $skin->profile_id,
+            'profileName' => $skin->profile_name,
+            'skinUrl' => $skin->skin_url,
+            'slimMode' => $skin->slim_model,
+            'capeUrl' => $skin->cape_url,
+            'signature' => base64_encode($skin->signature)
+        ];
+    }
+
+    public function getSkinByName($name) {
+        $skin = Skin::whereProfileName($name)->firstOrFail();
+        return [
+            'timestamp' => $skin->timestamp,
+            'profileId' => $skin->profile_id,
+            'profileName' => $skin->profile_name,
+            'skinUrl' => $skin->skin_url,
+            'slimMode' => $skin->slim_model,
+            'capeUrl' => $skin->cape_url,
+            'signature' => base64_encode($skin->signature)
+        ];
+    }
+
+    public function getPluginUsage($pluginName) {
+        return PluginUsage::wherePlugin($pluginName)->count();
     }
 
     public function stats() {

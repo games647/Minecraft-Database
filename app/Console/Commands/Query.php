@@ -7,6 +7,7 @@ use \xPaw\MinecraftQuery;
 use \xPaw\MinecraftQueryException;
 use \App\Server;
 use \App\PluginUsage;
+use \Exception;
 
 class Query extends Command {
 
@@ -62,7 +63,7 @@ class Query extends Command {
             if ($port === 25565) {
                 $this->queryServer($server, Server::DEFAULT_BUNGEE_QUERY_PORT);
             }
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             $this->error($exception);
             $this->error($server->address . " " . $exception->getMessage());
         }

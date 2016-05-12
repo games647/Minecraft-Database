@@ -6,6 +6,8 @@ use Illuminate\Console\Command;
 use xPaw\MinecraftPing;
 use xPaw\MinecraftPingException;
 use \App\Server;
+use \File;
+use \Exception;
 
 class Ping extends Command {
 
@@ -57,7 +59,7 @@ class Ping extends Command {
 
             $this->parsePingData($server, $result);
             $server->save();
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             $this->error($server->address . " " . $exception->getMessage());
 
             //Reset the these data online if the server was online before
@@ -169,7 +171,7 @@ class Ping extends Command {
 
         $path = public_path() . "/img/favicons/$hostname.png";
         //check if it's still the same folder
-        if (\File::dirname($path) == public_path() . "/img/favicons"
+        if (File::dirname($path) == public_path() . "/img/favicons"
                 && (!file_exists($path) || md5_file($path) !== md5($data))) {
             //strip invalid path characters
             file_put_contents($path, $data);
