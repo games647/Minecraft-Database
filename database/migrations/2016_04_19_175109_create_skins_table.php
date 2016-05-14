@@ -14,13 +14,15 @@ class CreateSkinsTable extends Migration {
         Schema::create('skins', function (Blueprint $table) {
             $table->increments('id')->unsigned();
 
-            $table->uuid("profileId");
-            $table->string("profileName", 16);
+            $table->uuid("profile_id");
 
-            $table->string("skinUrl");
-            $table->string("capeUrl")->nullable();
+            //due name changes the profile name could be different while we want to keep this database entry
+            $table->string("profile_name", 16);
 
-            $table->boolean("slimModel")->default(0);
+            $table->string("skin_url");
+            $table->string("cape_url")->nullable();
+
+            $table->boolean("slim_model")->default(0);
 
             $table->binary("signature");
 
@@ -29,8 +31,8 @@ class CreateSkinsTable extends Migration {
 
             $table->timestamps();
 
-            $table->index("profileId");
-            $table->index("profileName");
+            $table->index("profile_id");
+            $table->index("profile_name");
         });
     }
 

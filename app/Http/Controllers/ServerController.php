@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 
 class ServerController extends Controller {
 
-    //http://regexr.com/3d8n1
-    const SERVER_REGEX = "/^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/";
+    //http://regexr.com/3ddc0
+    const SERVER_REGEX = "/^(([\w-]+\.)?([\w-]+\.)?[\w-]+\.\w+|((2[0-5]{2}|1[0-9]{2}|[0-9]{1,2})\.){3}(2[0-5]{2}|1[0-9]{2}|[0-9]{1,2}))?$/";
 
     public function index() {
         $servers = Server::where('online', true)->whereNotNull('motd')->orderBy("players", "desc")->paginate(5);
@@ -32,7 +32,7 @@ class ServerController extends Controller {
 
             $validator = validator()->make($request->input(), $debugRules);
         } else {
-            $validator = validator()-make($request->input(), $rules);
+            $validator = validator()->make($request->input(), $rules);
         }
 
 

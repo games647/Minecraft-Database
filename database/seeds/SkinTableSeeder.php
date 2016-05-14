@@ -12,11 +12,11 @@ class SkinTableSeeder extends Seeder {
     public function run() {
         App\Skin::create([
             'timestamp' => 1461163718120,
-            'profileId' => "61699b2e-d327-4a01-9f1e-0ea8c3f06bc6",
-            'profileName' => "Dinnerbone",
-            'skinUrl' => "http://textures.minecraft.net/texture/"
+            'profile_id' => "61699b2e-d327-4a01-9f1e-0ea8c3f06bc6",
+            'profile_name' => "Dinnerbone",
+            'skin_url' => "http://textures.minecraft.net/texture/"
             . "cd6be915b261643fd13621ee4e99c9e541a551d80272687a3b56183b981fb9a",
-            'capeUrl' => "http://textures.minecraft.net/texture/"
+            'cape_url' => "http://textures.minecraft.net/texture/"
             . "eec3cabfaeed5dafe61c6546297e853a547c39ec238d7c44bf4eb4a49dc1f2c0",
             'signature' => base64_decode("FjF5sk3ZC6mUEV9Z3QMNIFsmudgdhf2sSSy8bR/5fmAeg8df/o8nth28uk4gFADUoydhcCzB8fW2b"
                     . "Fcr32pb9ujw0i6D/nX82mBhENjU29YZ5b7mCzdmNW2zH04tIDoF3mRLw2Arn+NovwoUJmSo4g/QVsT0GbQGIMaRpKzW4YTn8"

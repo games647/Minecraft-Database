@@ -30,10 +30,21 @@ Route::group(['middleware' => ['web']], function () {
 
 //API
 Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
-    Route::get('/', 'ApiController@index');
+    Route::get('/server', 'ApiController@index');
 
     Route::get('/server/{address}', 'ApiController@getServer');
     Route::get('/server/{address}/favicon', 'ApiController@getIcon');
+
+    Route::get('/plugin/{pluginName}/usage', 'ApiController@getPluginUsage');
+
+    Route::get('/player/{uuid}', 'ApiController@getPlayerByUUID')
+            ->where("uuid", "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}");
+    Route::get('/player/{username}', 'ApiController@getPlayerByName')->where("username", "\w{2,16}");
+
+    //todo: rendered skin routes
+    Route::get('/skin/{uuid}', 'ApiController@getSkinByUUID')
+            ->where("uuid", "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}");
+    Route::get('/skin/{name}', 'ApiController@getSkinByName')->where("username", "\w{2,16}");
 
     Route::get('/stats', 'ApiController@stats');
 });

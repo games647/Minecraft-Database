@@ -33,19 +33,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Server whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Server whereDeletedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\PluginUsage[] $plugins
  */
 class Server extends Model {
 
     const DEFAULT_PORT = 25565;
+    const DEFAULT_BUNGEE_QUERY_PORT = 25577;
 
     use SoftDeletes;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'servers';
+
+    public function plugins() {
+        return $this->hasMany('App\PluginUsage');
+    }
 
     public function getHtmlMotd() {
         return \MinecraftColors::convertToHTML($this->motd, true);

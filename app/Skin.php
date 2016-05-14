@@ -8,52 +8,47 @@ use Illuminate\Database\Eloquent\Model;
  * App\Skin
  *
  * @property integer $id
- * @property integer $timestamp
- * @property string $profileId
- * @property string $profileName
- * @property string $skinUrl
- * @property string $capeUrl
- * @property boolean $slimModel
+ * @property string $profile_id
+ * @property string $profile_name
+ * @property string $skin_url
+ * @property string $cape_url
+ * @property boolean $slim_model
  * @property mixed $signature
+ * @property integer $timestamp
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Skin whereTimestamp($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereProfileId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereProfileName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereSkinUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereCapeUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereSlimModel($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereSignature($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Skin whereTimestamp($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Skin whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Skin extends Model {
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'skins';
 
     public function getEncodedData() {
         $data = array();
         $data['timestamp'] = $this->timestamp;
-        $data['profileId'] = str_replace("-", "", $this->profileId);
-        $data['profileName'] = $this->profileName;
+        $data['profileId'] = str_replace("-", "", $this->profile_id);
+        $data['profileName'] = $this->profile_name;
         $data['signatureRequired'] = true;
 
         $textures = array();
-        $textures['SKIN'] = ["url" => $this->skinUrl];
+        $textures['SKIN'] = ["url" => $this->skin_url];
 
-        if ($this->slimModel) {
+        if ($this->slim_model) {
             $textures['SKIN']["metadata"] = ["model" => "slim"];
         }
 
-        if ($this->capeUrl) {
-            $textures['CAPE'] = ["url" => $this->capeUrl];
+        if ($this->cape_url) {
+            $textures['CAPE'] = ["url" => $this->cape_url];
         }
 
         $data['textures'] = $textures;
