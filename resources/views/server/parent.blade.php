@@ -26,12 +26,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Minecraft Database</a>
+                    <a class="navbar-brand" href="/">Minecraft Database <img src="{!! url("/img/Server_Bind.png") !!}" style="position: absolute; top: 0; opacity: 0.7; left: 8%;"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="/server/add">Add server</a></li>
-                        <li><a href="https://github.com/games647/Minecraft-Database/wiki/API">API</a></li>
+                        <li><a href="https://github.com/games647/Minecraft-Database/wiki/Server">API</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/privacy">Privacy</a></li>
