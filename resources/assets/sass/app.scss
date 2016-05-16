@@ -14,7 +14,7 @@ a {
     font-weight: 600;
 }
 
-/*General Contant*/
+/* General Content */
 
 .allContent {
     margin-top: 75px;
@@ -34,17 +34,6 @@ a {
     src: url("/css/minecraft.ttf") format('truetype');
 }
 
-.motd {
-    font-family: minecraft;
-    font-size: 18px;
-    width: 100%;
-}
-
-.serverName {
-    font-weight: bold;
-    font-size: 16px;
-}
-
 .table>tbody>tr>td, .table>tbody>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     vertical-align: middle;
     text-align: center;
@@ -54,16 +43,22 @@ body {
     background: #337ab7;
 }
 
-.online {
-    color: green;
+.back-arrow {
+  position: relative;
+  top: 1em;
 }
 
-.offline {
-    color: red;
+// Server
+
+.motd {
+    font-family: minecraft;
+    font-size: 18px;
+    width: 100%;
 }
 
-.players {
-    width: 20%;
+.serverName {
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .serverInfo {
@@ -84,6 +79,54 @@ body {
 }
 
 .serverIcon {
+    img {
+        width: 64px;
+        height: 64px;
+        float: left;
+    }
+}
+
+.online {
+    color: green;
+}
+
+.offline {
+    color: red;
+}
+
+.players {
+    width: 20%;
+}
+
+
+// Player
+.playerInfo {
+    margin-right: auto;
+
+    img {
+        float: left;
+        margin-left: 30px;
+        margin-top: 15px;
+
+        width: 100px;
+    }
+
+    table {
+        width: 80%;
+        margin-left: auto;
+    }
+}
+
+.playerTable {
+    margin: 0 auto;
+}
+
+.playerName {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.playerIcon {
     img {
         width: 64px;
         height: 64px;
