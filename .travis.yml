@@ -11,7 +11,7 @@ install:
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
   # Setup the database with sample data
-  - php artisan migrate --seed
+  - php artisan migrate --seed --force
   # Install elixir and gulp
   - npm install
   # Syntax checker for php files
