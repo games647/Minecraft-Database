@@ -6,7 +6,7 @@
 <FilesMatch "\.(jpg|jpeg|jpe|gif|png|tif|tiff)$">
 	Order Deny,Allow
 	Allow from all
-	<IfModule mod_headers.c>
+    <IfModule mod_headers.c>
         Header append Cache-Control "public"
     </IfModule>
 </FilesMatch>
