@@ -2,6 +2,7 @@
 
 /* Simple configuration file for Laravel Sitemap package */
 return [
+    //disable cache in debug mode
     'use_cache' => !env('APP_DEBUG', false),
     'cache_key' => 'laravel-sitemap.' . config('app.url'),
     'cache_duration' => 30,

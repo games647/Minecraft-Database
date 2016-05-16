@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use \App\Server;
 
 class SitemapController extends Controller {
 
-    public function get() {
+    public function getServerPages() {
         /* @var $sitemap Roumen\Sitemap\Sitemap */
         $sitemap = app()->make("sitemap");
+
+        $sitemap->setCache('sitemap.server_pages');
         if (!$sitemap->isCached()) {
             $servers = Server::whereOnline(true)->whereNotNull('motd')->orderBy('updated_at', 'desc')->get();
-
-            $sitemap->add(url('/'), collect($servers)->first()->updated_at, '1.0', 'daily');
-
-            //add sites
-            $serverCount = $servers->count();
-            //5 = per page
-            for ($page = 1; $page <= ceil($serverCount / 5); $page++) {
-                $sitemap->add(url('/') . '/?page=' . $page, collect($servers)->first()->updated_at, '0.6', 'weekly');
-            }
 
             /* @var $server \App\Server */
             foreach ($servers as $server) {
@@ -40,6 +31,29 @@ class SitemapController extends Controller {
                 }
 
                 $sitemap->add($loc, $lastmod, 0.8, $freq, $images);
+            }
+        }
+
+        return $sitemap->render();
+    }
+
+    public function getServerIndex() {
+        /* @var $sitemap \Roumen\Sitemap\Sitemap */
+        $sitemap = app()->make("sitemap");
+
+        $sitemap->setCache('sitemap.server_index');
+        if (!$sitemap->isCached()) {
+            /* @var $lastUpdatedServer Server */
+            $lastUpdatedServer = Server::whereOnline(true)->whereNotNull('motd')->orderBy('updated_at', 'desc')
+                    ->firstOrFail();
+
+            $sitemap->add(url('/server'), $lastUpdatedServer->updated_at, '1.0', 'daily');
+
+            //add sites
+            $serverCount = Server::whereOnline(true)->whereNotNull('motd')->count();
+            //5 = per page
+            for ($page = 1; $page <= ceil($serverCount / 5); $page++) {
+                $sitemap->add(url('/server') . '/?page=' . $page, $lastUpdatedServer->updated_at, '0.6', 'weekly');
             }
 
             $sitemap->add(url('/server/add'), null, '0.5', 'weekly');

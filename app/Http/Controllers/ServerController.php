@@ -13,7 +13,7 @@ class ServerController extends Controller {
 
     public function index() {
         $servers = Server::where('online', true)->whereNotNull('motd')->orderBy("players", "desc")->paginate(5);
-        return view('index', ['servers' => $servers]);
+        return view('server.index', ['servers' => $servers]);
     }
 
     public function addServer(Request $request) {
@@ -42,7 +42,7 @@ class ServerController extends Controller {
         if ($validator->passes()) {
             $exists = Server::where("address", '=', $address)->withTrashed()->exists();
             if ($exists) {
-                return view("add")->with(["address" => $address])->withErrors(['Server already exists']);
+                return view("server.add")->with(["address" => $address])->withErrors(['Server already exists']);
             } else {
                 $server = new Server();
                 $server->address = $address;
@@ -57,12 +57,12 @@ class ServerController extends Controller {
         } else {
             logger()->error("FAILED ", ["FAILS" => $validator->failed()]);
 
-            return view("add")->with(["address" => $address])->withErrors($validator);
+            return view("server.add")->with(["address" => $address])->withErrors($validator);
         }
     }
 
     public function getAdd($address = "") {
-        return view('add', ['address' => $address]);
+        return view('server.add', ['address' => $address]);
     }
 
     public function showServer($id) {
@@ -76,9 +76,9 @@ class ServerController extends Controller {
         }
 
         if ($server) {
-            return view("server", ['server' => $server]);
+            return view("server.server", ['server' => $server]);
         } else {
-            return response()->view("notFound", ['address' => $id], 404);
+            return response()->view("server.notFound", ['address' => $id], 404);
         }
     }
 

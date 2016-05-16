@@ -6,11 +6,20 @@ use App\Server;
 use App\Skin;
 use App\Player;
 use \App\PluginUsage;
+use Illuminate\Support\Facades\View;
 
 class ApiController extends Controller {
 
     public function index() {
+        return view("api.index");
+    }
+
+    public function ServerIndex() {
         return Server::paginate();
+    }
+
+    public function PlayerIndex() {
+        return Player::paginate();
     }
 
     public function getServer($address) {
@@ -58,6 +67,14 @@ class ApiController extends Controller {
             'capeUrl' => $skin->cape_url,
             'signature' => base64_encode($skin->signature)
         ];
+    }
+
+    public function getPlugins() {
+
+    }
+
+    public function getPluginInfo($plugin) {
+
     }
 
     public function getPluginUsage($pluginName) {

@@ -1,0 +1,35 @@
+# Automatic tests for pull requests and commits
+# which runs independent from the client system
+language: php
+
+# Our server is 7.0
+php: [7.0]
+
+# Commands to be run in order to setup the environment.
+install:
+  # According to the travis site the composer build be very old, so update it to prevent bugs
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+  # Setup the database with sample data
+  - php artisan migrate --seed --force
+  # Install elixir and gulp
+  - npm install
+  # Syntax checker for php files
+  - composer require --dev jakub-onderka/php-parallel-lint
+  # Travis supports color output so make use of it
+  - composer require --dev jakub-onderka/php-console-highlighter
+
+script:
+  # Run php unit tests
+  - vendor/bin/phpunit --verbose
+  # Test compile and deploy the assets in order to detect for example syntax errors in sass
+  - gulp
+  # Include the path explicity in order to ignore the single ide-helper file which cannot be ignored by the
+  # exclude paramater but could could most likely contain error we do not care about
+  - vendor/jakub-onderka/php-parallel-lint/parallel-lint --exclude vendor server.php public resources database config bootstrap app
+  # todo add blade syntax checker
+
+# Get a summary of the output
+after_script:
+  - ls -laR app/storage
+  - cat app/storage/logs/*

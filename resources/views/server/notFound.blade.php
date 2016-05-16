@@ -1,4 +1,4 @@
-@extends('parent')
+@extends('server.parent')
 
 @section('title', 'Server not found')
 

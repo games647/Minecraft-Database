@@ -11,16 +11,33 @@
   |
  */
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', "ServerController@redirectPage");
 
+    // Index Screen
+    Route::get('/', "StartscreenController@index");
+
+    // Servers
     Route::get('/server', "ServerController@index");
 
     Route::get('/server/add/{address?}', "ServerController@getAdd");
 
     Route::post('/server/add', "ServerController@addServer");
 
-    Route::get('/search/', "SearchController@search");
+    Route::get('/server/search', "SearchController@searchServer");
     Route::get('/server/{address}', "ServerController@showServer");
+
+    // Players
+    Route::get('/player', "PlayerController@index");
+
+    Route::get('/player/add/{uuid?}', "PlayerController@getAdd");
+
+    Route::post('/player/add', "PlayerController@addPlayer");
+
+    Route::get('/player/search', "SearchController@searchPlayer");
+
+    Route::get('/player/{uuid}', "PlayerController@getPlayerByUUID")
+        ->where("uuid", "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}");
+    Route::get('/player/{username}', "PlayerController@getPlayerByUsername")
+        ->where("username", "\w{2,16}");
 
     //general
     Route::get('/privacy', 'ContactController@privacy');
@@ -30,13 +47,22 @@ Route::group(['middleware' => ['web']], function () {
 
 //API
 Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
-    Route::get('/server', 'ApiController@index');
+    // General
+    Route::get('/', 'ApiController@index');
+
+    // Server
+    Route::get('/server', 'ApiController@ServerIndex');
 
     Route::get('/server/{address}', 'ApiController@getServer');
     Route::get('/server/{address}/favicon', 'ApiController@getIcon');
 
+    // Plugin
+    Route::get('/plugin/', 'ApiController@getPlugins');
+    Route::get('/plugin/{pluginName}/', 'ApiController@getPluginInfo');
     Route::get('/plugin/{pluginName}/usage', 'ApiController@getPluginUsage');
 
+    //Player
+    Route::get('/player', 'ApiController@PlayerIndex');
     Route::get('/player/{uuid}', 'ApiController@getPlayerByUUID')
             ->where("uuid", "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}");
     Route::get('/player/{username}', 'ApiController@getPlayerByName')->where("username", "\w{2,16}");
@@ -49,6 +75,7 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     Route::get('/stats', 'ApiController@stats');
 });
 
-Route::get('/sitemap.xml', 'SitemapController@get');
+Route::get('/sitemap_server_pages.xml', 'SitemapController@getServerPages');
+Route::get('/sitemap_server_index.xml', 'SitemapController@getServerIndex');
 
 Route::get('/.git', 'ContactController@git');

@@ -1,4 +1,4 @@
-@extends('parent')
+@extends('server.parent')
 
 @section('title', $server->address . " - Minecraft Server")
 
@@ -32,6 +32,7 @@
 @section('content')
         <div class="container">
             <div class="allContent">
+                <a href="/server" class="back-arrow"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to Database</a>
                 <h1>
 @if ($server->online)
                     <span class="online motd">{{ $server->address }}</span>
