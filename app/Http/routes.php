@@ -49,6 +49,7 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     Route::get('/stats', 'ApiController@stats');
 });
 
-Route::get('/sitemap.xml', 'SitemapController@get');
+Route::get('/sitemap_server_pages.xml', 'SitemapController@getServerPages');
+Route::get('/sitemap_server_index.xml', 'SitemapController@getServerIndex');
 
 Route::get('/.git', 'ContactController@git');
