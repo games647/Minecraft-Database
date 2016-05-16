@@ -10,15 +10,11 @@ use Illuminate\Support\Facades\View;
 
 class ApiController extends Controller {
 
-    public function index() {
-        return view("api.index");
-    }
-
-    public function ServerIndex() {
+    public function serverIndex() {
         return Server::paginate();
     }
 
-    public function PlayerIndex() {
+    public function playerIndex() {
         return Player::paginate();
     }
 

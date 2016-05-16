@@ -13,7 +13,8 @@
 Route::group(['middleware' => ['web']], function () {
 
     // Index Screen
-    Route::get('/', "StartscreenController@index");
+    Route::get('/', "ServerController@redirectPage");
+    Route::get('/start', "BaseController@index");
 
     // Servers
     Route::get('/server', "ServerController@index");
@@ -40,18 +41,15 @@ Route::group(['middleware' => ['web']], function () {
         ->where("username", "\w{2,16}");
 
     //general
-    Route::get('/privacy', 'ContactController@privacy');
-    Route::get('/tos', 'ContactController@tos');
-    Route::get('/imprint', 'ContactController@imprint');
+    Route::get('/privacy', 'BaseController@privacy');
+    Route::get('/tos', 'BaseController@tos');
+    Route::get('/imprint', 'BaseController@imprint');
 });
 
 //API
 Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
-    // General
-    Route::get('/', 'ApiController@index');
-
     // Server
-    Route::get('/server', 'ApiController@ServerIndex');
+    Route::get('/server', 'ApiController@serverIndex');
 
     Route::get('/server/{address}', 'ApiController@getServer');
     Route::get('/server/{address}/favicon', 'ApiController@getIcon');
@@ -62,7 +60,7 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     Route::get('/plugin/{pluginName}/usage', 'ApiController@getPluginUsage');
 
     //Player
-    Route::get('/player', 'ApiController@PlayerIndex');
+    Route::get('/player', 'ApiController@playerIndex');
     Route::get('/player/{uuid}', 'ApiController@getPlayerByUUID')
             ->where("uuid", "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}");
     Route::get('/player/{username}', 'ApiController@getPlayerByName')->where("username", "\w{2,16}");
@@ -78,4 +76,4 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
 Route::get('/sitemap_server_pages.xml', 'SitemapController@getServerPages');
 Route::get('/sitemap_server_index.xml', 'SitemapController@getServerIndex');
 
-Route::get('/.git', 'ContactController@git');
+Route::get('/.git', 'BaseController@git');

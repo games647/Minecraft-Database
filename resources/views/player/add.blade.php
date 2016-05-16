@@ -1,4 +1,4 @@
-@extends('player.parent')
+@extends('parent')
 
 @section('title', 'Add player')
 
@@ -6,15 +6,15 @@
 
 @push('opengraph')
 {{-- Facebook Open Graph --}}
-<meta property="og:title" content="Add player" />
-<meta property="og:description" content="Add your favorite minecraft player to the database" />
-<meta property="og:image" content="{{ url("/favicon.jpg") }}" />
-<meta property="og:url" content="{{ URL::current() }}" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Minecraft-Database" />
+        <meta property="og:title" content="Add player" />
+        <meta property="og:description" content="Add your minecraft profile to the database" />
+        <meta property="og:image" content="{{ url("/favicon.jpg") }}" />
+        <meta property="og:url" content="{{ URL::current() }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Minecraft-Database" />
 
 {{-- Twitter --}}
-<meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary" />
 @endpush
 
 @section('description', "Add your favorite minecraft player to the database")
@@ -23,15 +23,15 @@
     <div class="container">
         <div class="allContent">
             <h1>Add player</h1>
-            @if (count($errors) > 0)
+@if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
-                        @foreach ($errors->all() as $error)
+@foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
-                        @endforeach
+@endforeach
                     </ul>
                 </div>
-            @endif
+@endif
 
             <form method="POST" action="/player/add">
                 <div class="form-group">

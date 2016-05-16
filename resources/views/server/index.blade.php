@@ -1,4 +1,4 @@
-@extends('server.parent')
+@extends('parent')
 
 @section('title', 'Serverlist page ' . $servers->currentPage())
 
@@ -28,7 +28,6 @@
                         <div class="input-group">
                             <input type="text" class="form-control dark-background-input" name="search"
                                    placeholder="Search">
-                            {!! csrf_field() !!}
                             <span class="input-group-btn">
                                 <button class="btn btn-default dark-background" type="submit">
                                     <span id="search_icon" class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -53,4 +52,5 @@
                 {!! $servers->render() !!}
             </div>
         </div>
+
 @endsection

@@ -8,11 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 
-class SearchController extends Controller
-{
+class SearchController extends Controller {
 
-    public function searchServer(Request $request)
-    {
+    public function searchServer(Request $request) {
         $search = $request->input('search');
         if (!$search) {
             return view('server.searchresult');
@@ -37,28 +35,13 @@ class SearchController extends Controller
         }
     }
 
-
-    public function searchPlayer(Request $request)
-    {
-
+    public function searchPlayer(Request $request) {
         $search = $request->input('search');
         if (!$search) {
             return view('player.searchresult');
         }
 
-/*
-        $uuid_rules = array(
-            'search' => array('regex:' . self::UUID_REGEX),
-        );
-*/
-        $validator_uuid = \Validator::make(Input::all(),
-            array('search' => array('regex:/[0-9a-f]/')
-            )
-        );
-
-
-        //$validator_uuid = validator()->make($request->all(), $uuid_rules);
-
+        $validator_uuid = validator()->make(Input::all(), array('search' => array('regex:/[0-9a-f]/')));
         if ($validator_uuid->passes()) {
             $search = strtolower($request->input('search'));
 
@@ -69,18 +52,7 @@ class SearchController extends Controller
                 'players' => $players,
             ]);
         } else {
-/*
-            $player_rules = array(
-                'search' => array('regex:' . self::PLAYER_REGEX),
-            );
-
-
-            $validator_name = validator()->make($request->all(), $player_rules);
-*/
-            $validator_name = \Validator::make(Input::all(),
-                array('search' => array('regex:/\w{2,16}/')
-                )
-            );
+            $validator_name = validator()->make(Input::all(), array('search' => array('regex:' . Player::VALID_USERNAME)));
             if ($validator_name->passes()) {
                 $search = strtolower($request->input('search'));
 
@@ -91,7 +63,7 @@ class SearchController extends Controller
                     'players' => $players,
                 ]);
             } else {
-                //return view('player.searchresult')->withErrors($validator_name);
+                return view('player.searchresult')->withErrors($validator_name);
             }
         }
     }

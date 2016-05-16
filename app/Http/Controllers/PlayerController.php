@@ -10,21 +10,22 @@ use App\Http\Controllers\Controller;
 
 class PlayerController extends Controller {
 
-    //http://regexr.com/3d8n1
-    const PLAYER_REGEX = "\w{2,16}";
-
     public function index() {
         $players = Player::whereNotNull('uuid')->paginate(5);
         return view('player.index', ['players' => $players]);
     }
 
     public function addPlayer(Request $request) {
+        $rules = array(
+            'address' => array('required', 'regex:' . Player::VALID_USERNAME),
+            'g-recaptcha-response' => 'required|recaptcha',
+        );
 
-        // TODO Validator
-
-        $name = $request->input("name");
-        $uuid = Ping::constructOfflinePlayerUuid($name);
-        logger("Adding player", ["name" => $name, "uuid" => $uuid]);
+        $validator = validator()->make($request->input(), $rules);
+        if ($validator->passes()) {
+            $name = $request->input("name");
+            $uuid = Ping::constructOfflinePlayerUuid($name);
+            logger("Adding player", ["name" => $name, "uuid" => $uuid]);
 
             $exists = Player::where("uuid", '=', $uuid)->exists();
             if ($exists) {
@@ -39,6 +40,9 @@ class PlayerController extends Controller {
 
                 return redirect()->action("PlayerController@getPlayerByUUID", [$uuid]);
             }
+        } else {
+            return view("player.add")->with(["uuid" => $uuid, "name" => $name])->withErrors($validator);
+        }
     }
 
     public function getAdd($name = "") {
@@ -65,34 +69,5 @@ class PlayerController extends Controller {
         } else {
             return response()->view("player.notFound", ['name' => $username], 404);
         }
-    }
-/*
-    public function showPlayer($uuid) {
-        if (is_numeric($id)) {
-            $server = Server::find($id);
-        } else if (preg_match(self::SERVER_REGEX, $id)) {
-            /* @var $server Server */ /*
-            $server = Server::where("address", '=', $id)->withTrashed()->first();
-        } else {
-            abort(400, "Invalid search");
-        }
-
-        if ($server) {
-            return view("server", ['server' => $server]);
-        } else {
-            return response()->view("notFound", ['address' => $id], 404);
-        }
-    }
- */
-
-    public function redirectPage(Request $request) {
-        $page = $request->input('page');
-
-        $suffix = "";
-        if ($page && (int) $page) {
-            $suffix = "?page=$page";
-        }
-
-        return redirect(url('/player/' . $suffix));
     }
 }
