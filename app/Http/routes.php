@@ -35,10 +35,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/player/search', "SearchController@searchPlayer");
 
-    Route::get('/player/{uuid}', "PlayerController@getPlayerByUUID")
-        ->where("uuid", "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}");
-    Route::get('/player/{username}', "PlayerController@getPlayerByUsername")
-        ->where("username", "\w{2,16}");
+    Route::get('/player/{username}', "PlayerController@getPlayerByUsername")->where("username", "\w{2,16}");
+    Route::get('/player/{uuid}', "PlayerController@getPlayerByUUID");
 
     //general
     Route::get('/privacy', 'BaseController@privacy');
@@ -61,14 +59,12 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
 
     //Player
     Route::get('/player', 'ApiController@playerIndex');
-    Route::get('/player/{uuid}', 'ApiController@getPlayerByUUID')
-            ->where("uuid", "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}");
     Route::get('/player/{username}', 'ApiController@getPlayerByName')->where("username", "\w{2,16}");
+    Route::get('/player/{uuid}', 'ApiController@getPlayerByUUID');
 
     //todo: rendered skin routes
-    Route::get('/skin/{uuid}', 'ApiController@getSkinByUUID')
-            ->where("uuid", "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}");
     Route::get('/skin/{name}', 'ApiController@getSkinByName')->where("username", "\w{2,16}");
+    Route::get('/skin/{uuid}', 'ApiController@getSkinByUUID');
 
     Route::get('/stats', 'ApiController@stats');
 });

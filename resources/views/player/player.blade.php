@@ -21,11 +21,11 @@
 <!--Images-->
 @if (file_exists(public_path() . "/img/favicons/" . $player->uuid . ".png"))
     @push('opengraph')
-        <meta property="og:image" content="{{ url("/img/favicons/" . $player->uuid . ".png") }}" />
+        <meta property="og:image" content="{{ url("/img/head/" . $player->uuid . ".png") }}" />
     @endpush
 @else
     @push('opengraph')
-        <meta property="og:image" content="{{ url("/img/favicons/default_head.png") }}" />
+        <meta property="og:image" content="{{ url("/img/head/default.png") }}" />
     @endpush
 @endif
 
@@ -44,7 +44,7 @@
                 </h1>
 
                 <div class="playerInfo">
-@if (file_exists(public_path() . "/img/favicons/" . $player->uuid . ".png"))
+@if (file_exists(public_path() . "/img/head/" . $player->uuid . ".png"))
                     <img class="playerIcon" src="/img/head/{{ $player->uuid }}.png" alt="Player Head"/>
 @else
                     <img class="playerIcon" src="/img/head/default.png" alt="Default Head"/>

@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Console\Commands\Ping;
 use App\Player;
 use Illuminate\Http\Request;
-use App\Server;
 use App\Http\Controllers\Controller;
 
 class PlayerController extends Controller {
@@ -17,31 +15,27 @@ class PlayerController extends Controller {
 
     public function addPlayer(Request $request) {
         $rules = array(
-            'address' => array('required', 'regex:' . Player::VALID_USERNAME),
+            'name' => array('required', 'regex:' . Player::VALID_USERNAME),
             'g-recaptcha-response' => 'required|recaptcha',
         );
 
+        $name = $request->input("name");
+
         $validator = validator()->make($request->input(), $rules);
         if ($validator->passes()) {
-            $name = $request->input("name");
-            $uuid = Ping::constructOfflinePlayerUuid($name);
-            logger("Adding player", ["name" => $name, "uuid" => $uuid]);
+            logger("Adding player", ["name" => $name]);
 
-            $exists = Player::where("uuid", '=', $uuid)->exists();
+            $exists = Player::where("name", '=', $name)->exists();
             if ($exists) {
-                return view("player.add")->with(["uuid" => $uuid, "name" => $name])->withErrors(['Player already exists']);
+                return view("player.add")->with(["name" => $name])->withErrors(['Player already exists']);
             } else {
-                $player = new Player();
-                $player->uuid = $uuid;
-                $player->name = $name;
-                $player->save();
+                \Artisan::call("app:uuid", ["playerName" => $name]);
 
-                logger()->info("Added player: " . $name . " : " . $uuid);
-
-                return redirect()->action("PlayerController@getPlayerByUUID", [$uuid]);
+                logger()->info("Added player: " . $name . " : ");
+                return redirect()->action("PlayerController@getPlayerByUsername", [$name]);
             }
         } else {
-            return view("player.add")->with(["uuid" => $uuid, "name" => $name])->withErrors($validator);
+            return view("player.add")->with(["name" => $name])->withErrors($validator);
         }
     }
 

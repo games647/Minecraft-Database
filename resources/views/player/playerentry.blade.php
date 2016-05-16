@@ -1,7 +1,7 @@
                     <tr>
                         <td class="icon">
                             <a href="/player/{{ $player->uuid }}">
-@if (file_exists(public_path() . "/img/favicons/" . $player->uuid . ".png"))
+@if (file_exists(public_path() . "/img/head/" . $player->uuid . ".png"))
                                 <img src="/img/head/{{ $player->uuid }}.png" alt="{{ $player->name }} Head"
                                      class="icon"/>
 @else
