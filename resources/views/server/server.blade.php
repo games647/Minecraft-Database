@@ -1,4 +1,4 @@
-@extends('server.parent')
+@extends('parent')
 
 @section('title', $server->address . " - Minecraft Server")
 

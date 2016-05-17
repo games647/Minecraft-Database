@@ -16,8 +16,9 @@ class Kernel extends ConsoleKernel {
 //         Commands\Inspire::class,
         Commands\Ping::class,
         Commands\Query::class,
-//        Commands\NameResolve::class,
-//        Commands\NameHistory::class,
+        Commands\NameResolve::class,
+        Commands\NameHistory::class,
+        Commands\SkinDownload::class,
     ];
 
     /**
@@ -31,7 +32,6 @@ class Kernel extends ConsoleKernel {
         //          ->hourly();
         $schedule->command('app:ping')->everyThirtyMinutes()->sendOutputTo(storage_path() . '/logs/ping.log', true);
         $schedule->command('app:query')->weekly()->sendOutputTo(storage_path() . '/logs/query.log', true);
-
 //        $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping();
     }
 }

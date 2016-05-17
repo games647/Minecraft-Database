@@ -2,8 +2,19 @@
 # which runs independent from the client system
 language: php
 
+## Cache composer bits
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 # Our server is 7.0
 php: [7.0]
+
+env:
+  - DB=mysql
+
+before_script:
+    - cp .env.travis .env
 
 # Commands to be run in order to setup the environment.
 install:

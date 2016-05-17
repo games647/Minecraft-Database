@@ -16,6 +16,46 @@ a {
 
 /* General Content */
 
+.startscreen {
+    width: 99%;
+    background: url("/img/start_background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-bottom: 0!important;
+}
+
+#startscreen_headline {
+    font-family: "source_sans", "Lucida Grande", "Lucida Sans", sans-serif;
+    height: 40px;
+    width: 1050px;
+    text-align: center;
+    margin: 8% auto 0;
+}
+
+#startscreen_headline_minecraft {
+    font-family: minecraft, serif;
+}
+
+.startscreen_img {
+    height: 250px !important;
+    width: auto;
+    padding: 10px 10px 0;
+}
+
+.thumb_container {
+    top: 50%;
+    position: relative;
+}
+
+.main_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .allContent {
     margin-top: 75px;
     background: #222;
@@ -44,8 +84,8 @@ body {
 }
 
 .back-arrow {
-  position: relative;
-  top: 1em;
+    position: relative;
+    top: 1em;
 }
 
 // Server
@@ -78,7 +118,7 @@ body {
     }
 }
 
-.serverIcon {
+.icon  {
     img {
         width: 64px;
         height: 64px;
@@ -124,14 +164,6 @@ body {
 .playerName {
     font-weight: bold;
     font-size: 16px;
-}
-
-.playerIcon {
-    img {
-        width: 64px;
-        height: 64px;
-        float: left;
-    }
 }
 
 #search {
