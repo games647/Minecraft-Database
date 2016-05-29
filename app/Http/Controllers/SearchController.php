@@ -17,14 +17,14 @@ class SearchController extends Controller {
         }
 
         $rules = array(
-            'search' => array('required', 'alpha_num'),
+            'search' => array('required', 'Between:4,32', 'regex:' . "([a-zA-Z0-9_.])"),
         );
 
         $validator = validator()->make($request->all(), $rules);
         if ($validator->passes()) {
             $search = strtolower($request->input('search'));
 
-            $servers = Server::where('address', 'LIKE', "%" . $search . "%")->get();
+            $servers = Server::where('address', 'LIKE', "%" . $search . "%")->orderBy("players", "desc")->paginate(10);
 
             return view('server.searchresult', [
                 'keyword' => $search,
