@@ -23,7 +23,7 @@
                     </ul>
                 </div>
 @endif
-                <form action="{{ url("/player/search") }}" method="GET">
+                <form action="{{ secure_url("/player/search") }}" method="GET">
                     <div class="input-group">
                         <input type="text" class="form-control dark-background-input" name="search" placeholder="Search"
                            value="{{ $keyword or '' }}">
