@@ -40,7 +40,7 @@ class MinecraftColors {
         'a' => 'green', //Green
         'b' => '#0099CC', //Aqua
         'c' => 'red', //Red
-        'd' => 'lightpruple', //Light Purple
+        'd' => 'lightpurple', //Light Purple
         'e' => 'yellow', //Yellow
         'f' => 'white'  //White
     );

@@ -8,7 +8,7 @@
 {{-- Facebook Open Graph --}}
         <meta property="og:title" content="Add player" />
         <meta property="og:description" content="Add your minecraft profile to the database" />
-        <meta property="og:image" content="{{ url("/favicon.jpg") }}" />
+        <meta property="og:image" content="{{ secure_url("/favicon.jpg") }}" />
         <meta property="og:url" content="{{ URL::current() }}" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Minecraft-Database" />

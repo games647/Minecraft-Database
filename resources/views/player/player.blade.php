@@ -21,11 +21,11 @@
 <!--Images-->
 @if (file_exists(public_path() . "/img/favicons/" . $player->uuid . ".png"))
     @push('opengraph')
-        <meta property="og:image" content="{{ url("/img/head/" . $player->uuid . ".png") }}" />
+        <meta property="og:image" content="{{ secure_url("/img/head/" . $player->uuid . ".png") }}" />
     @endpush
 @else
     @push('opengraph')
-        <meta property="og:image" content="{{ url("/img/head/default.png") }}" />
+        <meta property="og:image" content="{{ secure_url("/img/head/default.png") }}" />
     @endpush
 @endif
 

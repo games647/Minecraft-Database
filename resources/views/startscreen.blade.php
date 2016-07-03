@@ -10,7 +10,7 @@
 {{-- Facebook Open Graph --}}
         <meta property="og:title" content="Minecraft Database Startscreen" />
         <meta property="og:description" content="Select the page you want to visit"/>
-        <meta property="og:image" content="{{ url("/favicon.jpg") }}" />
+        <meta property="og:image" content="{{ secure_url("/favicon.jpg") }}" />
         <meta property="og:url" content="{{ URL::current() }}" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Minecraft-Database" />
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="thumbnail">
-                        <img src="{{ url('/img/Skin.png') }}" alt="Player Database" class="startscreen_img">
+                        <img src="{{ secure_url('/img/Skin.png') }}" alt="Player Database" class="startscreen_img">
                         <div class="caption">
                             <h3>
                                 <a href="/player">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="thumbnail">
-                        <img src="{{ url("/img/crafting_table.png") }}" alt="Server Database" class="startscreen_img">
+                        <img src="{{ secure_url("/img/crafting_table.png") }}" alt="Server Database" class="startscreen_img">
                         <div class="caption">
                             <h3>
                                 <a href="/server">

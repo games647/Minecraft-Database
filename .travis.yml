@@ -13,12 +13,10 @@ php: [7.0]
 env:
   - DB=mysql
 
-before_script:
-    - cp .env.travis .env
-
 # Commands to be run in order to setup the environment.
 install:
   # According to the travis site the composer build be very old, so update it to prevent bugs
+  - cp .env.travis .env
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
   # Setup the database with sample data
