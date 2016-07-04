@@ -72,6 +72,34 @@
 @endif
                             </td>
                         </tr>
+                        <tr>
+                            <th>Skin: </th>
+                            <td>
+                                @if($skinsize[0] != null && $skinsize[1] != null)
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 120px; padding-left: 10px; padding-bottom: 10px;">
+                                            <img style="margin: 0 0 0 20px; padding: 0;" src="{{ url("/img/skin/$player->uuid.png") }}">
+                                        </td>
+                                        <td style="padding-left: 110px;">
+                                            <img style="width: 200px; margin: 0px 90px 0px 0px;" src="{{ url("/img/skin/raw/$player->uuid.png") }}">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><a href="{{ public_path("/img/skin/$player->uuid.png") }}" download="{{ $player->name }}-Image.png" class="btn btn-default">Download Skin Image</a></td>
+                                        <td><a href="{{ public_path("/img/skin/raw/$player->uuid.png") }}" download="{{ $player->name }}.png" style="width: 200px;" class="btn btn-default">Download Raw Skin</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>{{ $skinsize[0] }}</p></td>
+                                        <td><p>{{ $skinsize[1] }}</p></td>
+                                    </tr>
+                                    @else
+                                        <p>This Player is using the Standard Skin</p>
+                                    @endif
+                                </table>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>

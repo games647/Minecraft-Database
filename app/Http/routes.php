@@ -69,7 +69,15 @@ Route::group(['prefix' => 'api', 'middleware' => ['api']], function () {
     Route::get('/stats', 'ApiController@stats');
 });
 
+// Sitemap
+
+// Server
 Route::get('/sitemap_server_pages.xml', 'SitemapController@getServerPages');
 Route::get('/sitemap_server_index.xml', 'SitemapController@getServerIndex');
+
+// Player
+
+Route::get('/sitemap_player_pages.xml', 'SitemapController@getPlayerPages');
+Route::get('/sitemap_player_index.xml', 'SitemapController@getPlayerIndex');
 
 Route::get('/.git', 'BaseController@git');
