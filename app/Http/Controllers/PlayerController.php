@@ -104,7 +104,7 @@ class PlayerController extends Controller {
 
 
         if ($player) {
-            return view("player.player", ['player' => $player, 'skinsize' => $skin_sizes, 'root' => $_SERVER['DOCUMENT_ROOT']]);
+            return view("player.player", ['player' => $player, 'skinsize' => $skin_sizes]);
         } else {
             return response()->view("player.notFound", ['name' => $username], 404);
         }

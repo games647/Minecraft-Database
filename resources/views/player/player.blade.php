@@ -87,8 +87,8 @@
                                     </tr>
 
                                     <tr>
-                                        <td><a href="{{ url("/img/skin/$player->uuid.png") }}" download="{{ $player->name }}-Image.png" class="btn btn-default">Download Skin Image</a></td>
-                                        <td><a href="{{ url("/img/skin/raw/$player->uuid.png") }}" download="{{ $player->name }}.png" style="width: 200px;" class="btn btn-default">Download Raw Skin</a></td>
+                                        <td><a href="{{ public_path("/img/skin/$player->uuid.png") }}" download="{{ $player->name }}-Image.png" class="btn btn-default">Download Skin Image</a></td>
+                                        <td><a href="{{ public_path("/img/skin/raw/$player->uuid.png") }}" download="{{ $player->name }}.png" style="width: 200px;" class="btn btn-default">Download Raw Skin</a></td>
                                     </tr>
                                     <tr>
                                         <td><p>{{ $skinsize[0] }}</p></td>
