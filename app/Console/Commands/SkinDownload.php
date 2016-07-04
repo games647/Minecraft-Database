@@ -88,5 +88,29 @@ class SkinDownload extends Command {
         if (File::dirname($path) == public_path() . "/img/skin") {
             imagepng($skin, $path);
         }
+
+        $path = public_path() . "/img/skin/raw/$uuid.png";
+        if (File::dirname($path) == public_path() . "/img/skin/raw") {
+
+
+            $source_imagex = imagesx($rawSkin);
+            $source_imagey = imagesy($rawSkin);
+
+            $dest = 200;
+            $canvas = imagecreatetruecolor($dest, $dest);
+
+            imagealphablending($canvas, true);
+            imagesavealpha($canvas, true);
+
+            $transparent = imagecolorallocatealpha($canvas, 255, 255, 255, 127);
+            imagefill($canvas, 0, 0, $transparent);
+
+
+
+            imagecopyresampled($canvas, $rawSkin, 0, 0, 0, 0,
+                $dest, $dest, $source_imagex, $source_imagey);
+
+            imagepng($canvas, $path);
+        }
     }
 }
