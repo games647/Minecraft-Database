@@ -2,6 +2,9 @@
 # which runs independent from the client system
 language: php
 
+services:
+  - mysql
+
 ## Cache composer bits
 cache:
   directories:
@@ -18,6 +21,7 @@ install:
   # According to the travis site the composer build be very old, so update it to prevent bugs
   - cp .env.travis .env
   - composer self-update
+  - mysql -e "create database IF NOT EXISTS test;" -uroot
   - composer install --prefer-source --no-interaction --dev
   # Setup the database with sample data
   - php artisan migrate --seed --force
