@@ -76,7 +76,7 @@ class SkinDownload extends Command {
     function saveRendered($uuid, $url) {
         $rawSkin = imagecreatefromstring(file_get_contents($url));
         $head = MinecraftSkins::head($rawSkin, 8);
-        $skin = MinecraftSkins::skin($rawSkin, 8);
+        $skin = MinecraftSkins::skin($rawSkin, 4);
 
         $path = public_path() . "/img/head/$uuid.png";
         //check if it's still the same folder
