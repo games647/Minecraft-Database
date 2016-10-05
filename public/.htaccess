@@ -22,6 +22,13 @@
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
 
+<IfModule mod_headers.c>
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Content-Security-Policy "default-src 'none'; font-src 'self'; script-src 'self' 'sha256-Hl1Fig24nuDW1/2tARfn+Um+nSLNb9p6LNuXk8kwgeU=' https://www.gstatic.com/recaptcha/ https://code.jquery.com/jquery-2.2.3.min.js https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js https://www.google.com/recaptcha/; connect-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; frame-src https://www.google.com/recaptcha/"
+  Header set X-Frame-Options "DENY"
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
 # ----------------------------------------------------------------------
 # | Expires headers                                                    |
 # ----------------------------------------------------------------------
