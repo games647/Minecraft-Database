@@ -44,5 +44,5 @@ script:
 
 # Get a summary of the output
 after_script:
-  - ls -laR app/storage
-  - cat app/storage/logs/*
+  - ls -laR storage
+  - cat storage/logs/*
