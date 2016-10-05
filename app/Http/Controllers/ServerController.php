@@ -13,7 +13,7 @@ class ServerController extends Controller {
 
     public function index() {
         $servers = Server::where('online', true)->whereNotNull('motd')->orderBy("players", "desc")->paginate(5);
-        return view('server.index', ['servers' => $servers]);
+        return view('index', ['servers' => $servers]);
     }
 
     public function addServer(Request $request) {
@@ -90,6 +90,6 @@ class ServerController extends Controller {
             $suffix = "?page=$page";
         }
 
-        return redirect(url('/server/' . $suffix));
+        return redirect()->secure(url('/server/' . $suffix));
     }
 }
