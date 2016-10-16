@@ -18,7 +18,7 @@ class ServerController extends Controller {
 
     public function addServer(Request $request) {
         $rules = array(
-            'address' => array('required', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
+            'address' => array('required', 'unique:servers', 'Between:4,32', 'regex:' . self::SERVER_REGEX),
             'g-recaptcha-response' => 'required|recaptcha',
         );
 
@@ -40,29 +40,24 @@ class ServerController extends Controller {
         logger("Adding server", ["ip" => $request->ip(), "server" => $address]);
 
         if ($validator->passes()) {
-            $exists = Server::where("address", '=', $address)->withTrashed()->exists();
-            if ($exists) {
-                return view("server.add")->with(["address" => $address])->withErrors(['Server already exists']);
-            } else {
-                $server = new Server();
-                $server->address = $address;
-                $server->save();
+            $server = new Server();
+            $server->address = $address;
+            $server->save();
 
-                logger()->info("Added server: " . $address);
+            logger()->info("Added server: " . $address);
 
-                \Artisan::call("app:ping", ["address" => $address]);
+            \Artisan::call("app:ping", ["address" => $address]);
 
-                return redirect()->action("ServerController@showServer", [$address]);
-            }
+            return redirect()->action("ServerController@showServer", [$address]);
         } else {
             logger()->error("FAILED ", ["FAILS" => $validator->failed()]);
 
-            return view("server.add")->with(["address" => $address])->withErrors($validator);
+            return view("add")->with(["address" => $address])->withErrors($validator);
         }
     }
 
     public function getAdd($address = "") {
-        return view('server.add', ['address' => $address]);
+        return view('add', ['address' => $address]);
     }
 
     public function showServer($id) {
@@ -76,9 +71,9 @@ class ServerController extends Controller {
         }
 
         if ($server) {
-            return view("server.server", ['server' => $server]);
+            return view("server", ['server' => $server]);
         } else {
-            return response()->view("server.notFound", ['address' => $id], 404);
+            return response()->view("notFound", ['address' => $id], 404);
         }
     }
 
